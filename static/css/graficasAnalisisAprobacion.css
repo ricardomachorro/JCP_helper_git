@@ -1,0 +1,275 @@
+.porcentajeAprobacionContadorIndividual, .porcentajeAprobacionContadorIndividualCuestionario{
+    padding: 0px 10px;
+    margin-left: 10px;
+    font-weight: 600;
+}
+
+.contenedorAnalisisPorcentage{
+    display: grid;
+    grid-template-columns: 1fr;
+    grid-template-rows: auto;
+    justify-content: center;
+    align-items: center;
+    padding: 5px 10px;
+}
+
+.contenedorAnalisisPorcentage_son1{
+    padding: 5px 20px;
+    margin-bottom: 10px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.dato_son1{
+    font-size: 25px;
+    font-weight: 700;
+}
+
+.contenedorAnalisisPorcentage_son2{
+    display: grid;
+    grid-template-columns: 1fr;
+    grid-template-rows: auto;
+    justify-content: center;
+    align-items: center;
+    margin: 10px 0;
+}
+
+.significado_dato_son2{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    margin: 5px 0;
+}
+
+.significado_dato_son3{
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    grid-template-rows: auto;
+    gap: 10px;
+    margin-top: 5px;
+    margin-bottom: 5px;
+}
+
+@media only screen and (max-width: 600px){
+    .significado_dato_son3{
+        display: grid;
+        grid-template-columns: 1fr;
+        grid-template-rows: auto;
+        gap: 10px;
+        margin-top: 5px;
+        margin-bottom: 5px;
+    }
+}
+
+.containerSimbologiaTipoPregunta{
+    display: grid;
+    grid-template-columns: .1fr 4fr;
+    grid-template-rows: auto;
+}
+
+.simbologiaBarra{
+    width: 40px !important;
+    height: 25px !important;
+}
+
+.simbologiaBarraPequeno{
+    width: 100% !important;
+    height: 100% !important;
+}
+
+.textoSignificado{
+    font-weight: 500;
+    font-size: 16px;
+    margin-left: 20px;
+}
+
+.textoTipoPregunta{
+    font-weight: 500;
+    font-size: 13px;
+    margin-left: 20px;
+}
+
+.contenedorAnalisisPorcentage_son3{
+    display: grid;
+    grid-template-columns: 1fr;
+    grid-template-rows: auto;
+    justify-content: center;
+    align-items: center;
+}
+
+/*Contenedores con la informacion*/
+.containerInfoBarAnalisisAprobacion{
+    display: grid;
+    grid-template-columns: 1fr;
+    grid-template-rows: auto;
+    padding: 8px 10px;
+    margin-bottom: 15px;
+}
+
+.titleInfoBarAnalisisAprobacion{
+    font-size: 20px;
+    font-weight: 600;
+}
+
+.barContainerInfoBarAnalisisAprobacion{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: row;
+    width: 100%;
+}
+
+.aprobadosBar_analisis{
+    width: 30%;
+    height: 30px;
+    padding: 4px 10px;
+    font-weight: 700;
+    border-radius: 5px 0 0 5px;
+}
+
+.reprobadosBar_analisis{
+    width: 70%;
+    height: 30px;
+    padding: 4px 10px;
+    font-weight: 700;
+    border-radius: 0 5px 5px 0;
+}
+
+/*Metemos aquí los estilos para los insights de los grupos*/
+.contenedorGrupoIndividualInsights, .contenedorCuestionariosIndividualInsights{
+    padding: 10px 200px;
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    grid-template-rows: auto;
+    grid-template-areas: 
+    "area1 area2"
+    "area3 area5"
+    "area3 area5"
+    "area4 area4"
+    "area6 area6";
+    gap: 20px;
+}
+
+@media only screen and (max-width: 1250px){
+    .contenedorGrupoIndividualInsights, .contenedorCuestionariosIndividualInsights{
+        padding: 10px;
+        display: grid;
+        grid-template-columns: repeat(2, 1fr);
+        grid-template-rows: auto;
+        grid-template-areas: 
+        "area1 area1"
+        "area2 area3"
+        "area5 area5"
+        "area4 area4"
+        "area6 area6";
+        gap: 20px;
+    }
+}
+
+@media only screen and (max-width: 600px){
+    .contenedorGrupoIndividualInsights, .contenedorCuestionariosIndividualInsights{
+        padding: 4px;
+        display: grid;
+        grid-template-columns: 1fr;
+        grid-template-rows: auto;
+        grid-template-areas: 
+        "area1"
+        "area2"
+        "area3"
+        "area4"
+        "area5"
+        "area6"
+        ;
+        gap: 15px;
+    }
+}
+
+.containerDataIndividualGroup{
+    display: grid;
+    grid-template-columns: 1fr;
+    grid-template-rows: auto;
+    padding: 5px;
+}
+
+.tituloContenedorUnitarioEstadisticas{
+    display: flex;
+    justify-content: left;
+    align-items: center;
+    padding: 5px 10px;
+    font-size: 18px;
+    font-weight: 700;
+}
+
+.contenidoContenedorUnitarioEstadisticas{
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 10px;
+    grid-template-areas: auto;
+    padding: 10px 20px;
+}
+
+.contenidoContenedorUnitarioEstadisticasModel2{
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 10px;
+    grid-template-areas: auto;
+    padding: 10px 20px;
+}
+
+
+@media only screen and (max-width: 600px){
+    .contenidoContenedorUnitarioEstadisticas{
+        display: grid;
+        grid-template-columns: 1fr;
+        gap: 10px;
+        grid-template-areas: auto;
+        padding: 10px 20px;
+    }
+}
+
+.porcetageAprobacionParrafoUnitario{
+    font-weight: 650;
+    font-size: 16px;
+    padding: 10px 10px !important;
+    margin: 0 0 5px 0 !important;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.porcentajeAprobacionSnippetUnitario{
+    padding: 5px 15px;
+    font-size: 14px;
+    border-radius: 50px;
+    margin-left: 10px;
+    width: 80%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+/*primerContenedor*/
+.first_child_container{
+    grid-area: area1; 
+}
+
+.second_child_container{
+    grid-area: area2; 
+}
+
+.third_child_container{
+    grid-area: area3; 
+}
+
+.fourth_child_container{
+    grid-area: area4; 
+}
+
+.fifth_child_container{
+    grid-area: area5; 
+}
+
+.sixth_child_container{
+    grid-area: area6; 
+}

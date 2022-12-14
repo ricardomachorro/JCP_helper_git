@@ -1,0 +1,198 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+    <title class="TDI">Información adicional</title>
+
+    <!--Jalamos todo el contenido del encabezado-->
+    {% include "includes/encabezadoRecursos.html" %}
+
+</head>
+
+<body class="oculto colorGrey">
+
+    <!--Jalamos todo el contenido del encabezado-->
+    {% include "includes/cargador.html" %}
+
+
+    <!--Menu de página de inicio-->
+    <nav class="color2">
+        <div class="nav-wrapper">
+            <a href="#" class="brand-logo hide-on-small-only TDI">Información adicional.</a>
+            <a href="bienvenidaProfesor" data-target="slide-out" class="sidenav-trigger"><i
+                    class="material-icons">arrow_back</i></a>
+            <p class="titleMobile colorText flow-text hide-on-med-and-up TDI">Información adicional.</p>
+            <ul class="right hide-on-med-and-down">
+                <li><a href="/gestionar_cuestionarios" class="btn color3 button-rounded TDI">Volver</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <!--Vista general del proceso-->
+    <section class="containerCreacionCuestionariosSon3Final">
+        <div class="containerProcesoImagen">
+            <div id="circleOne" class="shadow-2e color3 colorText">1</div>
+            <div id="lineMiddle" class="shadow-2e color3"></div>
+            <div id="circleTwo" class="shadow-2e color3 colorText">2</div>
+        </div>
+        <div class="containerProcesoData">
+            <div class="TDI colorTextReverse">Estructura principal</div>
+            <div class="TDI colorTextReverse">Datos adicionales</div>
+        </div>
+    </section>
+
+    <!--Titulos de la página-->
+    <div class="title-general">
+        <h5 class="colorTextReverse hide-on-large-only hide-on-med-only TDI">Formulario de finalización.</h5>
+    </div>
+
+    <!--Contenedor principal-->
+    <section class="contendorFormularioEditarGrupo">
+        <section class="contenedorFormularioPrincipal">
+            <form class="popUpForm bordered2 colorGreyWhiter shadow-2e" action="/saveCuestionario/{{id_profesor}}"
+                method="post">
+                <h5 class="TDI">Datos de creación</h5>
+                <div class="row">
+                    <div class="input-field col s12 m6">
+                        <input id="autorCuestionario" name="autorCuestionario" type="text" class="validate colorTextReverse"
+                            value="{{datosProfesor[1]}}">
+                        <label for="autorCuestionario" class="TDI">Autor del cuestionario</label>
+                    </div>
+                    <div class="input-field col s12 m6">
+                        <input id="fechaCuestionario" name="fechaCuestionario" type="text" class="validate datepicker colorTextReverse"
+                            value="">
+                        <label for="fechaCuestionario" class="TDI">Fecha de Creación</label>
+                    </div>
+                    <h5 class="TDI">Tiempo de la prueba</h5>
+                    <div class="input-field col s6 m6">
+                        <input id="horaLimiteParaResolver" name="horaLimiteParaResolver" type="text" class="validate timepicker colorTextReverse"
+                            value="12:00 PM">
+                        <label for="horaLimiteParaResolver" class="TDI">Hora límite para resolver</label>
+                    </div>
+                    <div class="input-field col s6 m6">
+                        <input id="fechaLimiteRespuesta" name="fechaLimiteRespuesta" type="text" class="validate datepicker colorTextReverse"
+                            value="">
+                        <label for="fechaLimiteRespuesta" class="TDI">Día límite para resolver</label>
+                    </div>
+                    <div class="input-field col s12 m12">
+                        <input maxlength="5" id="tiempoCuentaAtras" name="tiempoCuentaAtras" placeholder="format hh:mm" type="text" class="validate colorTextReverse"
+                            value="01:30">
+                        <label for="tiempoCuentaAtras" class="TDI">Tiempo cuenta regresiva (hh:mm)</label>
+                    </div>
+                    <div class="input-field col s12 m12">
+                        <input maxlength="2" id="numeroIntentosDisponibles" name="numeroIntentosDisponibles" placeholder="Número de intentos" type="number" class="validate colorTextReverse"
+                            value="3">
+                        <label for="numeroIntentosDisponibles" class="TDI colorTextReverse">Número de intentos</label>
+                    </div>
+                </div>
+                <h5 class="TDI">Datos del cuestionario</h5>
+                <div class="row">
+                    <div class="input-field col s12 m6">
+                        <input id="tituloCuestionario" name="tituloCuestionario" type="text" class="validate colorTextReverse"
+                            value="{{nombreCuestionario}}">
+                        <label for="tituloCuestionario" class="TDI">Nombre de cuestionario</label>
+                        <input id="tituloCuestionarioConClave" name="tituloCuestionarioConClave" type="hidden"
+                            value="{{nombreCuestionarioConClave}}">
+                    </div>
+                    
+                    <div class="input-field col s12 m6">
+                        <select id="temasCuestionario" name="temasCuestionario">
+                            {% if gruposNombres %}
+                            {%for i in range(0, gruposNombres|length)%}
+                            <option value="{{gruposNombres[i][7]}}">{{gruposNombres[i][7]}}</option>
+                            {% endfor %}
+                            {% endif%}
+                        </select>
+                        <label class="TDI">Temas del cuestionario</label>
+                    </div>
+
+                    <div id="oneInputTipo" class="input-field col s12 m12">
+                        <select id="tipoCuestionarioOne" name="tipoCuestionario">
+                            <option value="Diagnóstico" class="TDI">Diagnóstico</option>
+                            <option value="Autodiagnóstico" class="TDI">Autodiagnóstico</option>
+                            <option value="Autoevaluacion" class="TDI">Autoevaluación</option>
+                            <option value="Parcial" class="TDI">Parcial</option>
+                            <option value="Final" class="TDI">Final</option>
+                            <option value="Practica" class="TDI">Práctica</option>
+                            <option value="Juego" class="TDI">Juego</option>
+                            <option value="otro" class="TDI">Otro</option>
+                        </select>
+                        <label class="TDI">Tipo de cuestionario</label>
+                    </div>
+
+                    <div id="oneInputOrden" class="input-field col s12 m12">
+                        <select id="oneInputOrdenOne" name="oneInputOrdenOne">
+                            <option value="random" class="TDI">Aleatorio</option>
+                            <option value="order_by_creation" class="TDI">Por orden de creación</option>
+                            <option value="order_by_type" class="TDI">Por tipo de pregunta</option>
+                        </select>
+                        <label class="TDI">Orden de cuestionario</label>
+                    </div>
+
+                    <!--En caso de que seleccione otros-->
+                    <div id="twoInputTipo" class="hiddenElement input-field col s12 m12">
+                        <input id="tipoCuestionarioTwo" name="tipoCuestionario" type="text" class="validate colorTextReverse"
+                            value="" disabled>
+                        <label for="tipoCuestionarioTwo" class="TDI">Escriba el tipo</label>
+                    </div>
+
+                    <div id="oneInputLenguaje" class="input-field col s12 m12">
+                        <select id="lenguajeCuestionarioOne" name="lenguajeCuestionario">
+                            <option value="Java">Java</option>
+                            <option value="Python">Python</option>
+                            <option value="C/C++">C/C++</option>
+                            <option value="otro" class="TDI">Otro</option>
+                        </select>
+                        <label class="TDI">Lenguaje del cuestionario</label>
+                    </div>
+                    <!--En caso de que seleccione otros-->
+                    <div id="twoInputLenguaje" class="hiddenElement input-field col s12 m12">
+                        <input id="lenguajeCuestionarioTwo" name="lenguajeCuestionario" type="text" class="validate colorTextReverse"
+                            value="" disabled>
+                        <label for="lenguajeCuestionarioTwo" class="TDI">Escriba el lenguaje</label>
+                    </div>
+
+                    <div class="input-field col s12 m12">
+                        <select id="grupoCuestionario" name="grupoCuestionario">
+                            {% if gruposNombres %}
+                            {%for i in range(0, gruposNombres|length)%}
+                            <option value="{{gruposNombres[i][2]}}">{{gruposNombres[i][2]}}</option>
+                            {% endfor %}
+                            {% endif%}
+                        </select>
+                        <label class="TDI">Grupo del cuestionario</label>
+                    </div>
+                    <input type="hidden" id="storageLenguaje" name="storageLenguaje">
+                    <script>
+                        let storageLenguaje = document.getElementById('storageLenguaje');
+                        let idioma = localStorage.getItem('idioma');
+                        storageLenguaje.value = idioma;
+                    </script>
+                    <br>
+                </div>
+                <button type="submit" class="btn-large color2 bordered5 buttonPopUp TDI">Guardar</button>
+            </form>
+        </section>
+    </section>
+
+<!--Botones para que el gestor de idiomas no falle-->
+<span class="hiddenElement" id="seleccionarEspanol"></span>
+<span class="hiddenElement" id="seleccionarIngles"></span>
+<span class="hiddenElement" id="seleccionarPortugues"></span>
+<span class="hiddenElement" id="seleccionarChino"></span>
+
+</body>
+
+<!--Jalamos todo el contenido del encabezado-->
+{% include "includes/footerRecursos.html" %}
+
+<script src="../../static/js/obtenerFechaActual.js"></script>
+<script src="../../static/js/operacionesEditarGrupo.js"></script>
+<script src="../../static/js/operacionesEditarCuestionario.js"></script>
+
+<!--Traduccion-->
+<script src="../static/js/idiomas/textExtractor.js"></script>
+<script src="../static/js/idiomas/textos.mjs" type="module"></script>
+<script src="../static/js/idiomas/gestorIdiomas.js" type="module"></script>
+
+</html>

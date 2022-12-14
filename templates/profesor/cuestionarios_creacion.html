@@ -1,0 +1,669 @@
+<!doctype html>
+<html lang="en">
+
+<!--Jalamos todo el contenido del encabezado-->
+{% include "includes/footerRecursos.html" %}
+
+<head>
+    <title class="TDI">Creación de cuestionarios</title>
+
+    <!--Jalamos todo el contenido del encabezado-->
+    {% include "includes/encabezadoRecursos.html" %}
+
+</head>
+
+<body class="oculto colorGrey">
+
+    <!--Cargador de la página -->
+
+    {% include "includes/cargador.html" %}
+
+    <!--Menu de página de inicio-->
+    <nav class="color2 fixedNavbarMine">
+        <div class="nav-wrapper">
+            <a href="#" class="brand-logo hide-on-small-only TDI">Crear cuestionario.</a>
+            <a href="bienvenidaProfesor" data-target="slide-out" class="sidenav-trigger"><i
+                    class="material-icons">arrow_back</i></a>
+            <p class="titleMobile colorText flow-text hide-on-med-and-up TDI">Crear cuestionario.</p>
+            <ul class="right hide-on-med-and-down">
+                <li><a href="/gestionar_cuestionarios" class="btn color3 button-rounded TDI">Volver</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <section class="containerCreacionCuestionarios">
+        <!--Opciones para crear el cuestionario en pantalla grande-->
+        <section class="containerCreacionCuestionariosSon1">
+            <section class="containerOpcionesFather">
+                <h5 class="TDI">Tipos de pregunta</h5>
+                <br>
+                <div class="containerOpciones colorGreyWhiter shadow-2e">
+                    <a class="waves-effect waves-light btn-large bordered1 color2 shadow-2e modal-trigger"
+                        href="#modalOpccionMultipleCreacion"><i class="material-icons left md-32">abc</i>
+                        <span class="TDI">
+                            Opción múltiple
+                        </span>
+                    </a>
+                    <a class="waves-effect waves-light btn-large bordered1 color2 shadow-2e modal-trigger"
+                        href="#modalRellenarEspaciosCreacion"><i class="material-icons left md-32">draw</i><span class="TDI">Rellenar
+                        espacios</span></a>
+                    <a class="waves-effect waves-light btn-large bordered1 color2 shadow-2e modal-trigger"
+                        href="#modalEjerciciosCreacion"><i class="material-icons left md-32">code</i><span class="TDI">Ejercicios</span></a>
+                    <a class="waves-effect waves-light btn-large bordered1 color2 shadow-2e modal-trigger"
+                        href="#modalArrastrarCreacion"><i
+                            class="material-icons left md-32">swipe_vertical</i>
+                            <span class="TDI">Arrastrar</span></a>
+                    <a class="waves-effect waves-light btn-large bordered1 color2 shadow-2e modal-trigger"
+                        href="#modalTrueFalse"><i class="material-icons left md-32">compare</i>
+                        <span class="TDI">Falso/Verdadero</span></a>
+                    <a class="waves-effect waves-light btn-large bordered1 color2 shadow-2e modal-trigger"
+                        href="#modalAbierta"><i class="material-icons left md-32">emoji_objects</i>
+                        <span class="TDI">Pregunta abierta</span></a>
+                    <a class="waves-effect waves-light btn-large bordered1 color1 shadow-2e modal-trigger"
+                        href="#agregar_JSON_existente"><i class="material-icons left md-32">file_copy</i><span class="TDI">Mis
+                        cuestionarios</span></a>
+                    <a class="waves-effect waves-light btn-large bordered1 color1 shadow-2e"
+                        href="/crear_cuestionario_del_banco"><i class="material-icons left md-32">cloud</i>
+                        <span class="TDI">Banco de
+                        preguntas</span></a>
+                </div>
+            </section>
+        </section>
+
+        <!--Opciones para cuestionario en pantalla pequeña-->
+        <section class="containerOpcionesMobileFather">
+            <section class="containerOpcionesMobile bordered1 colorGreyDarker">
+                <a class="button1 waves-effect waves-light shadow-1 modal-trigger"
+                    href="#modalOpccionMultipleCreacion"><i class="material-icons md-36 colorTextReverse">abc</i></a>
+                <a class="button2 waves-effect waves-light shadow-1 modal-trigger"
+                    href="#modalRellenarEspaciosCreacion"><i class="material-icons md-28 colorTextReverse">draw</i></a>
+                <a class="button3 waves-effect waves-light shadow-1 modal-trigger" href="#modalEjerciciosCreacion"><i
+                        class="material-icons md-28 colorTextReverse">code</i></a>
+                <a class="button4 waves-effect waves-light shadow-1 modal-trigger" href="#modalArrastrarCreacion"><i
+                        class="material-icons md-28 colorTextReverse">swipe_vertical</i></a>
+                <a class="button4 waves-effect waves-light shadow-1 modal-trigger" href="#modalTrueFalse"><i
+                        class="material-icons md-28 colorTextReverse">compare</i></a>
+                <a class="button4 waves-effect waves-light shadow-1 modal-trigger" href="#modalAbierta"><i
+                        class="material-icons md-28 colorTextReverse">emoji_objects</i></a>
+                <a class="button4 waves-effect waves-light shadow-1 modal-trigger" href="#agregar_JSON_existente"><i
+                        class="material-icons md-28 colorTextReverse">file_copy</i></a>
+                <a class="button5 waves-effect waves-light shadow-1" href="/crear_cuestionario_del_banco"><i
+                        class="material-icons md-28 colorTextReverse">cloud</i></a>
+            </section>
+        </section>
+
+        <!--Vista general del cuestionario-->
+        <section class="containerCreacionCuestionariosSon2">
+            <form action="/guardarCuestionarioJSON/{{id_profesor}}" method="post">
+                <div class="" id="contenedorCuestionarioPreguntas">
+                    <div class="tituloCuestionario">
+                        <div class="contenedorTitulo hiddenElement">
+                            <h5 id="tituloCuestionario" class="TDI">Titulo del cuestionario</h5>
+                            <a class="waves-effect waves-light btn bordered5 color1 shadow-2e" href="#"
+                                id="editarTitulo"><i class="material-icons">edit</i></a>
+                        </div>
+                        <div class="inputNombreCuestionario">
+                            <input type="text" name="nombreCuestionario" id="nombreCuestionario"
+                                class="browser-default inputNombre shadow-1 flow-text bordered5"
+                                >
+                            <input type="hidden" name="nombreCuestionarioConClave" id="nombreCuestionarioConClave">
+                            <a class="waves-effect waves-light btn color1 shadow-2e" href="#" id="guardarTitulo"><i
+                                    class="material-icons left">done</i><span class="TDI">Listo</span></a>
+                        </div>
+                    </div>
+                </div>
+                <section class="row">
+                    <!--Modal 0: Guardado del JSON -->
+                    <div id="modalJSON" class="modal colorGrey bordered2 modalAltura">
+                        <div class="modal-content">
+                            <h4 class="TDI">Generando archivo JSON</h4>
+                            <hr>
+                            <p class="TDI">El cuestionario será almacenado como archivo JSON, usted puede guardar una copia del
+                                cuestionario si asi lo desea.</p>
+                            <p><b class="TDI">Puede anexar algún JSON que haya descargado previamente.</b></p>
+                            <input type="file" id="inputfileAnterior" class="hidden" />
+                            <a id="leerArchivoEjercicioAnterior" style="width: 100%; right: 0; position: relative;">
+                                <label for="inputfileAnterior"
+                                    class="waves-effect waves-light btn bordered5 colorGreyDarker colorTextReverse"
+                                    style="width: 100%;" onclick="anexarJsonViejo('output', 'inputfileAnterior')">
+                                    <i class="material-icons">upload_file</i>
+                                </label>
+                            </a>
+
+                            <!--Preview del cuestionario-->
+                            <h5><b class="TDI">Preview de cuestionario JSON</b></h5>
+                            <pre class="previewCodeContainer colorText bordered2" id="output"></pre>
+                            <!--Input discreto para enviar contenido JSON a flask-->
+                            <input type="hidden" name="jsonContentInput" id="jsonContentInput">
+                            <!--Descarga del archivo-->
+                            <a onclick="downloadJson()"
+                                class="waves-effect waves-light btn-large bordered2Up color3 shadow-2e"
+                                id="descargarJSON" style="width: 100%;">
+                                <i class="material-icons left">download</i><span class="TDI">Descargar</span></a>
+                            <!--Almacenado del archivo (en BD y servidor)-->
+                            <button type="submit"
+                                class="waves-effect waves-light btn-large bordered2Down color1 shadow-2e"
+                                id="guardarJSON" style="width: 100%;">
+                                <i class="material-icons left">save</i><span class="TDI">Guardar</span></button>
+                        </div>
+                    </div>
+                    <!--MODAL -1: Para agregar un JSON existente-->
+                    <div id="agregar_JSON_existente" class="modal colorGrey bordered2" style="height: 80vh;">
+                        <div class="modal-content">
+                            <h4 class="TDI">Duplica cuestionario guardado</h4>
+                            <hr>
+                            <p><span class="TDI">Seleccione algún JSON que ya estuviera en existencia de cuestionarios anteriores.</span><b class="TDI">Se
+                                    creará una copia del documento y usted podra editar la data.</b></p>
+                            <h5><b class="TDI">Cuestionarios anteriores.</b></h5>
+                            <div id="archivoCuestionario" class="input-field col s12 m12">
+                                <select id="archivoCuestionarioExistente" name="archivoCuestionario">
+                                    {% if cuestionario_rutas %}
+                                    {%for i in range(0, cuestionario_rutas|length)%}
+                                    <option value="{{cuestionario_rutas[i][1]}}">{{cuestionario_rutas[i][0]}}
+                                    </option>
+                                    {% endfor %}
+                                    {% endif%}
+                                </select>
+                                <label class="TDI">Archivo de cuestionario</label>
+                            </div>
+                            <!--Descarga del archivo-->
+                            <a href="#" class="waves-effect waves-light btn-large bordered1 color1 shadow-2e"
+                                id="archivoExistenteButton" style="width: 100%;">
+                                <i class="material-icons left">file_open</i><span class="TDI">Cargar/Duplicar</span></a>
+                            <a class="hiddenElement" id="linkOculto"></a>
+                        </div>
+                    </div>
+                </section>
+                <!--Boton para abrir el modal del json-->
+                <div class="fixed-action-btn buttonSaveJSON">
+                    <button href="#modalJSON" onclick="convertToJSON()"
+                        class="modal-trigger btn-floating btn-large color1" id="buttonModalSaveFloat">
+                        <i class="large material-icons">save</i>
+                    </button>
+                </div>
+            </form>
+        </section>
+
+        <!--Vista general del proceso-->
+        <section class="containerCreacionCuestionariosSon3">
+            <div class="containerProcesoImagen">
+                <div id="circleOne" class="shadow-2e color3 colorText">1</div>
+                <div id="lineMiddle" class="shadow-2e colorGreyDarker"></div>
+                <div id="circleTwo" class="shadow-2e colorGreyDarker colorText">2</div>
+            </div>
+            <div class="containerProcesoData">
+                <div class="colorTextReverse TDI">Estructura principal</div>
+                <div class="colorTextReverse TDI">Datos adicionales</div>
+            </div>
+        </section>
+    </section>
+
+    <!--
+        ########################################
+        Esta parte no es visible para el usuario a 
+        menos de que quiera ingresar algún tipo de pregunta
+        por eso son modals.
+        ########################################
+    -->
+    <!--Contenido de la pagina MODALS-->
+    <section class="row" id="contenedorGeneral">
+        <!--
+            ######################################################
+            MODAL 1: OPCION MULTIPLE
+            ######################################################
+        -->
+        <div id="modalOpccionMultipleCreacion" class="modal colorGrey bordered2 modalAltura">
+            <div class="modal-content">
+                <h4 class="TDI colorTextReverse">Opción multiple</h4>
+                <hr>
+                <p class="TDI">Diseñe preguntas de opción múltiples primero definiendo la preguntas, luego las opciones y por último
+                    la opción correcta.</p>
+                <hr>
+                <form class="col s12" id="formModalOpccionMultipleCreacion">
+
+                    <h5><b class="TDI">Defina la pregunta</b></h5>
+                    <p class="TDI">Describa la pregunta o interrogante a responder.</p>
+                    <!--Titulo de la pregunta -->
+                    <div class="row">
+                        <div class="input-field col s12">
+                            <i class="material-icons prefix">question_mark</i>
+                            <textarea id="textAreaPreguntaOpccionMultipleCreacion"
+                                class="materialize-textarea colorTextReverse"></textarea>
+                            <label for="textAreaPreguntaOpccionMultipleCreacion" class="TDI">Pregunta</label>
+                        </div>
+                        <div class="input-field col s12">
+                            <i class="material-icons prefix">image</i>
+                            <textarea id="mediaProblemaOpcionMultiple" class="materialize-textarea colorTextReverse"></textarea>
+                            <label for="mediaProblemaOpcionMultiple" class="TDI">Imagen del problema(url)</label>
+                        </div>
+                    </div>
+
+                    <h5><b class="TDI">Defina las opciones</b></h5>
+                    <p class="TDI">Escriba las posibles opciones para la pregunta que se planteó y determine la respuesta correcta.
+                    </p>
+                    <!--Opcion A-->
+                    <div class="row">
+                        <div class="col s12" id="contenedorOpccionesOpccionMultipleModalCreacion">
+                            <div class="row colorGreyWhiter bordered1 opcionContainer opcionContainerModal">
+                                <!--Opcion de tomar A como correcta-->
+                                <div class="col s12 m3 labelContainer">
+                                    <label>
+                                        <input name="grupoOpcionesModalOpcionMuliple" class="modalChecker colorTextReverse" value="A"
+                                            type="radio" />
+                                        <span class="TDI">Correcta</span>
+                                    </label>
+                                </div>
+                                <!--Contenido de opcion A-->
+                                <div class="col s12 m9">
+                                    <h6><b class="TDI colorTextReverse">Opción A</b></h6>
+                                    <textarea id="opcionACreacion"
+                                        class="materialize-textarea colorTextReverse opcionContainerModalContent"></textarea>
+                                </div>
+                            </div>
+
+                            <!--Opcion B-->
+                            <div class="row hide colorGreyWhiter bordered1 opcionContainer opcionContainerModal">
+                                <!--Opcion de tomar B como correcta-->
+                                <div class="col s12 m3 labelContainer">
+                                    <label>
+                                        <input name="grupoOpcionesModalOpcionMuliple" class="modalChecker colorTextReverse" value="B"
+                                            type="radio" />
+                                        <span class="TDI">Correcta</span>
+                                    </label>
+                                </div>
+                                <!--Contenido de opcion B-->
+                                <div class="col s12 m9">
+                                    <h6><b class="TDI colorTextReverse">Opción B</b></h6>
+                                    <textarea id="opcionBCreacion"
+                                        class="materialize-textarea colorTextReverse opcionContainerModalContent"></textarea>
+                                </div>
+                            </div>
+
+                            <!--Opcion C-->
+                            <div class="row hide colorGreyWhiter bordered1 opcionContainer opcionContainerModal">
+                                <!--Opcion de tomar C como correcta-->
+                                <div class="col s12 m3 labelContainer">
+                                    <label>
+                                        <input name="grupoOpcionesModalOpcionMuliple" class="modalChecker colorTextReverse" value="C"
+                                            type="radio" />
+                                        <span class="TDI">Correcta</span>
+                                    </label>
+                                </div>
+                                <!--Contenido de opcion C-->
+                                <div class="col s12 m9">
+                                    <h6><b class="TDI colorTextReverse">Opción C</b></h6>
+                                    <textarea id="opcionCCreacion"
+                                        class="materialize-textarea colorTextReverse opcionContainerModalContent"></textarea>
+                                </div>
+                            </div>
+
+                            <!--Opcion D-->
+                            <div class="row hide colorGreyWhiter bordered1 opcionContainer opcionContainerModal">
+                                <!--Opcion de tomar D como correcta-->
+                                <div class="col s12 m3 labelContainer">
+                                    <p>
+                                        <label>
+                                            <input name="grupoOpcionesModalOpcionMuliple" class="modalChecker colorTextReverse" value="D"
+                                                type="radio" />
+                                            <span class="TDI">Correcta</span>
+                                        </label>
+                                    </p>
+                                </div>
+                                <!--Contenido de opcion D-->
+                                <div class="col s12 m9">
+                                    <h6><b class="TDI colorTextReverse">Opción D</b></h6>
+                                    <textarea id="opcionDCreacion"
+                                        class="materialize-textarea colorTextReverse opcionContainerModalContent"></textarea>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="hide-on-small-only">
+                        <br><br><br><br><br>
+                    </div>
+                    <!--Guardar la pregunta en el cuestionario-->
+                    <div class="botonesDelModal colorGrey">
+                        <!--Guardar opciones-->
+                        <div class="botonesDelModalSon1">
+                            <a class="waves-effect waves-light btn bordered5 color2 shadow-2e" href="#"
+                                id="btnGuardarModalOpcionMultipleCreacion"><i
+                                    class="material-icons left">save</i>
+                                    <span class="TDI">Guardar</span></a>
+                        </div>
+                        <!--Agregar opciones -->
+                        <div class="botonesDelModalSon2">
+                            <a class="waves-effect waves-light btn bordered5 color2 shadow-2e" href="#"
+                                id="btnAgregarModalOpcionMultipleCreacion"><i
+                                    class="material-icons left">add</i><span class="TDI">Agregar</span></a>
+                        </div>
+                        <!--Eliminar opciones -->
+                        <div class="botonesDelModalSon3">
+                            <a class="waves-effect waves-light btn bordered5 color1 shadow-2e" href="#"
+                                id="btnEliminarModalOpcionMultipleCreacion"><i
+                                    class="material-icons left">cleaning_services</i><span class="TDI">Limpiar todo</span></a>
+                        </div>
+                    </div>
+                </form>
+            </div>
+        </div>
+
+        <!--
+            ######################################################
+            MODAL 2: RELLENADO DE ESPACIOS
+            ######################################################
+        -->
+        <div id="modalRellenarEspaciosCreacion" class="modal colorGrey bordered2 modalAltura">
+            <div class="modal-content">
+                <h4 class="TDI">Rellenar espacios</h4>
+                <hr>
+                <p class="TDI">Ingrese un texto en el formulario, y posteriormente agregue los espacio en el texto de modo que el
+                    estudiante pueda completar con la respuesta correcta.</p>
+                <hr>
+                <form class="col s12">
+                    <h5><b class="TDI">Defina el texto</b></h5>
+                    <p class="TDI">Escriba la estructura que tendra el texto.</p>
+                    <!--Titulo de la pregunta -->
+                    <div class="row">
+                        <div class="row">
+                            <div class="input-field col s12">
+                                <i class="material-icons prefix">description</i>
+                                <textarea id="texAreaModalRellenarEspaciosCreacion" class="materialize-textarea colorTextReverse"
+                                    placeholder="text"></textarea>
+                                <label for="texAreaModalRellenarEspaciosCreacion" class="TDI">Escriba el texto a completar</label>
+                            </div>
+                        </div>
+                    </div>
+
+                    <h5><b class="TDI">Defina los espacios</b></h5>
+                    <p class="TDI">Agregue espacio a la estructura del texto de modo que puedan ser acompletados por el estudiante.
+                    </p>
+                    <!--Contenedor de espacios de creacion de elementos del espacio -->
+                    <div class="" id="contenedorOpccionEspaciosCreacion">
+
+                    </div>
+                    <div class="hide-on-small-only">
+                        <br><br><br><br><br><br>
+                    </div>
+                    <br><br><br><br><br>
+                    <!--Guardar la pregunta en el cuestionario-->
+                    <div class="botonesDelModal colorGrey">
+                        <!--Guardar opciones-->
+                        <div class="botonesDelModalSon1">
+                            <a class="waves-effect waves-light btn bordered5 color2 shadow-2e" href="#"
+                                id="btnGuardarModalRellenarEspaciosCreacion"><i
+                                    class="material-icons left">save</i><span class="TDI">Guardar</span></a>
+                        </div>
+                        <!--Agregar opciones -->
+                        <div class="botonesDelModalSon2">
+                            <a class="waves-effect waves-light btn bordered5 color2 shadow-2e" href="#"
+                                id="btnAgregarModalRellenarEspaciosCreacion"><i class="material-icons left">add</i>1
+                                <span class="TDI">Espacio</span></a>
+                        </div>
+                        <!--Eliminar opciones -->
+                        <div class="botonesDelModalSon3">
+                            <a class="waves-effect waves-light btn bordered5 color2 shadow-2e" href="#"
+                                id="btnEliminarModalRellenarEspaciosCreacion"><i class="material-icons left">remove</i>1
+                                <span class="TDI">Espacio</span></a>
+                        </div>
+                    </div>
+                </form>
+            </div>
+        </div>
+
+        <!--
+            ######################################################
+            MODAL 3: EJERCICIOS PLANTEADOS POR EL PROFESOR
+            ######################################################
+        -->
+        <div id="modalEjerciciosCreacion" class="modal colorGrey bordered2 modalAltura">
+            <div class="modal-content">
+                <h4 class="TDI">Ejercicios</h4>
+                <hr>
+                <p class="TDI">Ingrese la descripción de un ejercicio y adjunte un código para retroalimentar el ejercicio una vez
+                    que el estudiante suba su propuesta de solución al problema que usted planteó</p>
+                <div class="row">
+                    <form class="col s12">
+                        <h5><b class="TDI">Describa el ejercicio</b></h5>
+                        <p class="TDI">Escriba una descripción del problema/ejercicios a resolver para que sus alumnos conozcan a
+                            que resultado llegar.</p>
+                        <div class="row">
+                            <div class="input-field col s12">
+                                <i class="material-icons prefix">description</i>
+                                <textarea id="descripcionProblema" class="materialize-textarea colorTextReverse"></textarea>
+                                <label for="descripcionProblema" class="TDI">Descripción del problema</label>
+                            </div>
+                            <div class="input-field col s12">
+                                <i class="material-icons prefix">image</i>
+                                <textarea id="mediaProblema" class="materialize-textarea colorTextReverse"></textarea>
+                                <label for="mediaProblema" class="TDI">Imagen (url)</label>
+                            </div>
+                            <div class="input-field col s12">
+                                <i class="material-icons prefix">task</i>
+                                <textarea id="salidaProblema" class="materialize-textarea colorTextReverse"></textarea>
+                                <label for="salidaProblema" class="TDI">Salida esperada (opcional)</label>
+                            </div>
+                        </div>
+                        <h5><b class="TDI">Código de retroalimentación</b></h5>
+                        <p class="TDI">Escriba el código con la propuesta de solución para que el alumno pueda recibir
+                            retroalimentación, puede anexar un documento para leer el código o inclusive adjuntar algún
+                            enlace para
+                            dar acceso a documentos en linea.
+                        </p>
+                        <br>
+                        <div class="row colorGreyWhiter bordered2 contenedorOpcionesCodigo">
+                            <div class="col s12">
+                                <h6><b class="TDI colorTextReverse">Código de archivo</b></h6>
+                            </div>
+                            <input type="file" id="inputfile" class="hidden" />
+                            <a id="leerArchivoEjercicio" style="width: 100%;">
+                                <label for="inputfile"
+                                    class="waves-effect waves-light btn bordered5 color2 shadow-2e colorText"
+                                    style="width: 100%;">
+                                    <i class="material-icons">upload_file</i>
+                                </label>
+                            </a>
+                            <div class="col s12">
+                                <h6><b class="TDI colorTextReverse">Adjuntar enlace a carpeta online (múltiples archivos)</b></h6>
+                            </div>
+                            <div class="input-field col s12">
+                                <i class="material-icons prefix">cloud_circle</i>
+                                <input type="text" id="carpetaOnline" class="colorTextReverse"></input>
+                                <label for="carpetaOnline" class="TDI">Enlace de carpeta</label>
+                            </div>
+                            <div class="col s12">
+                                <h6><b class="TDI colorTextReverse">Código escrito manualmente</b></h6>
+                            </div>
+                            <div class="input-field col s12">
+                                <i class="material-icons prefix">history_edu</i>
+                                <textarea id="codigoResultado" class="materialize-textarea colorTextReverse"></textarea>
+                                <label for="codigoResultado" class="TDI">Código a mano</label>
+                            </div>
+                        </div>
+                        <h5><b class="TDI">Vista previa del código</b></h5>
+                        <div class="previewCodeContainer bordered2" style="width: 100%;">
+                            <code class="colorText">
+                                <pre id="codigoMuestra">
+
+                                </pre>
+                            </code>
+                        </div>
+
+                        <br><br><br>
+                        <!--Guardar la pregunta en el cuestionario-->
+                        <div class="botonesDelModalDosBotones colorGrey">
+                            <!--Guardar opciones-->
+                            <div class="botonesDelModalSon1">
+                                <a class="waves-effect waves-light btn bordered5 color2 shadow-2e" href="#"
+                                    id="crearEjercicioButton"><i class="material-icons left">save</i><span class="TDI">Guardar</span></a>
+                            </div>
+                            <!--Limpiar opciones -->
+                            <div class="botonesDelModalSon2">
+                                <a class="waves-effect waves-light btn bordered5 color2 shadow-2e" href="#"
+                                    id="limpiarCasillasEjercicioButton"><i
+                                        class="material-icons left">cleaning_services</i>
+                                        <span class="TDI">Limpiar</span></a>
+                            </div>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+
+        <!--
+            ######################################################
+            MODAL 4: PARA ARRASTRAR LAS RESPUESTAS
+            ######################################################
+        -->
+        <div id="modalArrastrarCreacion" class="modal colorGrey bordered2 modalAltura">
+            <div class="modal-content">
+                <h4 class="TDI">Arrastrar y ordenar</h4>
+                <hr>
+                <p class="TDI">Ingrese en la columna A el concepto y en la columna B la definición (el concepto y la definición
+                    deben estar a la misma altura)</p>
+                <form class="col s12">
+                    <h5><b class="TDI">Descripción del ejercicio</b></h5>
+                    <!--Titulo de la pregunta -->
+                    <div class="row">
+                        <div class="row">
+                            <div class="input-field col s12">
+                                <i class="material-icons prefix">description</i>
+                                <textarea id="texAreaModalArrastrarCreacion" class="materialize-textarea colorTextReverse"></textarea>
+                                <label for="texAreaModalArrastrarCreacion" class="TDI">Descripción del ejercicio</label>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!--Seccion para la creacion  de opcciones -->
+
+                    <div class="row">
+                        <div class="col s12 row" id="opccionesArrastarModalCreacion">
+                            <div class="col s12 m6">
+                                <h6 class="tituloColumnaModal"><b class="TDI colorTextReverse">Conceptos (A)</b></h6>
+                            </div>
+                            <div class='col s12 m6'>
+                                <h6 class="tituloColumnaModal"><b class="TDI colorTextReverse">Definiciones (B)</b></h6>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="hide-on-small-only">
+                        <br><br><br>
+                    </div>
+                    <br><br><br><br><br><br>
+                    <!--Guardar la pregunta en el cuestionario-->
+                    <div class="botonesDelModal colorGrey">
+                        <!--Guardar opciones-->
+                        <div class="botonesDelModalSon1">
+                            <a class="waves-effect waves-light btn bordered5 color2 shadow-2e" href="#"
+                                id="btnGuardarModalArrastrarCreacion"><i class="material-icons left">save</i>
+                                <span class="TDI">Guardar</span></a>
+                        </div>
+                        <!--Agregar opciones -->
+                        <div class="botonesDelModalSon2">
+                            <a class="waves-effect waves-light btn bordered5 color2 shadow-2e" href="#"
+                                id="btnAgregarsModalArrastrarCreacion"><i class="material-icons left">add</i><span class="TDI">Agregar</span></a>
+                        </div>
+                        <!--Eliminar opciones -->
+                        <div class="botonesDelModalSon3">
+                            <a class="waves-effect waves-light btn bordered5 color2 shadow-2e" href="#"
+                                id="btnEliminarModalArrastrarCreacion"><i
+                                    class="material-icons left">remove</i><span class="TDI">Eliminar</span></a>
+                        </div>
+                    </div>
+                </form>
+            </div>
+        </div>
+        <!--
+            ######################################################
+            MODAL 5: EJERCICIOS de falso y verdadero
+            ######################################################
+        -->
+        <div id="modalTrueFalse" class="modal colorGrey bordered2 modalAltura">
+            <div class="modal-content">
+                <h4 class="TDI">Falso y verdadero</h4>
+                <hr>
+                <p class="TDI">Ingrese una pregunta y determine la opción correcta</p>
+                <div class="row">
+                    <form class="col s12">
+                        <h5><b class="TDI">Pregunta</b></h5>
+                        <div class="row">
+                            <div class="input-field col s12">
+                                <i class="material-icons prefix">description</i>
+                                <textarea id="preguntaFalseVerdadero" class="materialize-textarea colorTextReverse"></textarea>
+                                <label for="preguntaFalseVerdadero" class="TDI">Pregunta</label>
+                            </div>
+                            <h6><b class="TDI colorTextReverse">Respuesta</b></h6>
+                            <p class="TDI">Escribe F en caso de que sea falso o T en caso de que sea verdad.</p>
+                            <div class="input-field col s12">
+                                <input maxlength="1" placeholder="T/F" id="textFalseVerdadero" type="text"
+                                    class="validate shadow-1e colorWhite colorTextReverse falsoVerdaderoInput browser-default">
+                            </div>
+                        </div>
+                        <br><br><br>
+                    </form>
+                    <!--Almacenado del archivo (en BD y servidor)-->
+                    <button class="waves-effect waves-light btn bordered5 color1 shadow-2e" id="saveFalseVerdadero"
+                        style="width: 100%;">
+                        <i class="material-icons left">save</i><span class="TDI">Guardar</span></button>
+                </div>
+            </div>
+        </div>
+        </div>
+        <!--
+            ######################################################
+            MODAL 6: EJERCICIOS preguntas abiertas
+            ######################################################
+        -->
+        <div id="modalAbierta" class="modal colorGrey bordered2 modalAltura">
+            <div class="modal-content">
+                <h4 class="TDI">Pregunta abierta</h4>
+                <hr>
+                <p class="TDI">Ingrese una pregunta (esta pregunta requiere revisión manual por parte del docente)</p>
+                <div class="row">
+                    <form class="col s12">
+                        <h5><b class="TDI">Pregunta</b></h5>
+                        <div class="row">
+                            <div class="input-field col s12">
+                                <i class="material-icons prefix">description</i>
+                                <textarea id="preguntaAbiertaDescripcion" class="materialize-textarea colorTextReverse"></textarea>
+                                <label for="preguntaAbiertaDescripcion"><span class="TDI">Pregunta</span></label>
+                            </div>
+                            <div class="input-field col s6">
+                                <i class="material-icons prefix">play_arrow</i>
+                                <textarea id="videoPreguntaAbierta" class="materialize-textarea colorTextReverse"></textarea>
+                                <label for="videoPreguntaAbierta"><span class="TDI">Video (opcional)</span></label>
+                            </div>
+                            <div class="input-field col s6">
+                                <i class="material-icons prefix">image</i>
+                                <textarea id="imagePreguntaAbierta" class="materialize-textarea colorTextReverse"></textarea>
+                                <label for="imagePreguntaAbierta"><span class="TDI">Imagen (opcional)</span></label>
+                            </div>
+                        </div>
+                        <br><br><br>
+                    </form>
+                    <!--Almacenado del archivo (en BD y servidor)-->
+                    <button type="submit" class="waves-effect waves-light btn bordered5 color1 shadow-2e"
+                        id="saveAbierta" style="width: 100%;">
+                        <i class="material-icons left">save</i><span class="TDI">Guardar</span></button>
+                </div>
+            </div>
+        </div>
+        </div>
+    </section>
+    <!--Botones para que el gestor de idiomas no falle-->
+    <span class="hiddenElement" id="seleccionarEspanol"></span>
+    <span class="hiddenElement" id="seleccionarIngles"></span>
+    <span class="hiddenElement" id="seleccionarPortugues"></span>
+    <span class="hiddenElement" id="seleccionarChino"></span>
+
+</body>
+
+<!--Jalamos todo el contenido del encabezado-->
+{% include "includes/footerRecursos.html" %}
+<script src="../../static/js/configuracionCreacionCuestionario.js"></script>
+
+<!--Traduccion-->
+<script src="../static/js/idiomas/textos.mjs" type="module"></script>
+<script src="../static/js/idiomas/gestorIdiomas.js" type="module"></script>
+
+</html>

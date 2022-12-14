@@ -1,0 +1,291 @@
+::selection { 
+    background: #003e42;
+    color:#fff; 
+}
+
+.color1 {background-color:  #00292c;}
+.color2 {background-color:  #0f0f0f;}
+.color3 {background-color:  #003438;}
+.color4 {background-color:  #004449;}
+.color5 {background-color:  #003e42;}
+
+.colorGrey {background-color: #333333;}
+.colorGreyWhiter {background-color: #272727;}
+.colorWhite {background-color: #2b2b2b;}
+.colorGreyDarker {background-color: #242424;}
+
+.coloredText {color: rgb(255, 255, 255) !important;}
+.colorText {color: rgb(255, 255, 255) !important;}
+.colorTextReverse {color: rgb(255, 255, 255) !important;}
+
+.borderDecoration{
+    border-bottom: 5px #003438 solid;
+}
+
+.borderDecorationStrong{
+    border-bottom: 5px #003438 solid;
+}
+
+body{
+    background-color: #181818;
+}
+
+h1,h2,h3,h4,h5, p{
+    color: #fff !important;
+}
+
+/*Fondos dinámicos*/
+.cardCarouselMainHead{
+    background-image: url('../../images/fondos/black/black_1.png');
+}
+
+.cardMain{
+    background-image: url('../../images/fondos/black/black_2.png');
+}
+
+.cardMainDesktopPanelHead{
+    background-image: url('../../images/fondos/black/black_3.png');
+}
+
+.informeCard{
+    background-image: url('../../images/fondos/black/black_4.png');
+}
+
+.iconSecondary{
+    background-image: url('../../images/fondos/black/black_2.png') ;
+}
+
+.card-bienvenida,.card-bienvenida-text{
+    background-image: url('../../images/fondos/black/black_1.png');
+}
+
+.fondoDinamico{
+    background-image: url('../../images/fondos/black/black_1.png');
+}
+
+.icon_app{
+    background-image: url('../../images/logo_app/grey_icon.png');
+}
+
+.iconBoxInfoDinamico{
+    background-image: url('../../images/brand_app/triple_oscuro.png');
+}
+
+
+/*Barra de carga*/
+.progress .indeterminate {
+    background-color: #2c2c2c;
+}
+
+/*Hover de los botones*/
+.btn:hover,
+.btn-large:hover,
+.btn-small:hover {
+    background-color: #252525 !important;
+    color: #fff !important;
+}
+
+/*Color de los formularios dinamico*/
+input:not([type]):focus:not([readonly]),
+input[type=text]:not(.browser-default):focus:not([readonly]),
+input[type=password]:not(.browser-default):focus:not([readonly]),
+input[type=email]:not(.browser-default):focus:not([readonly]),
+input[type=url]:not(.browser-default):focus:not([readonly]),
+input[type=time]:not(.browser-default):focus:not([readonly]),
+input[type=date]:not(.browser-default):focus:not([readonly]),
+input[type=datetime]:not(.browser-default):focus:not([readonly]),
+input[type=datetime-local]:not(.browser-default):focus:not([readonly]),
+input[type=tel]:not(.browser-default):focus:not([readonly]),
+input[type=number]:not(.browser-default):focus:not([readonly]),
+input[type=search]:not(.browser-default):focus:not([readonly]),
+textarea.materialize-textarea:focus:not([readonly]) {
+    border-bottom: 1px solid #00b6ad;
+    -webkit-box-shadow: 0 1px 0 0 #00b6ad;
+    box-shadow: 0 1px 0 0 #00b6ad;
+}
+
+input:not([type]):focus:not([readonly])+label,
+input[type=text]:not(.browser-default):focus:not([readonly])+label,
+input[type=password]:not(.browser-default):focus:not([readonly])+label,
+input[type=email]:not(.browser-default):focus:not([readonly])+label,
+input[type=url]:not(.browser-default):focus:not([readonly])+label,
+input[type=time]:not(.browser-default):focus:not([readonly])+label,
+input[type=date]:not(.browser-default):focus:not([readonly])+label,
+input[type=datetime]:not(.browser-default):focus:not([readonly])+label,
+input[type=datetime-local]:not(.browser-default):focus:not([readonly])+label,
+input[type=tel]:not(.browser-default):focus:not([readonly])+label,
+input[type=number]:not(.browser-default):focus:not([readonly])+label,
+input[type=search]:not(.browser-default):focus:not([readonly])+label,
+textarea.materialize-textarea:focus:not([readonly])+label {
+    color: #00b6ad;
+}
+
+[type="checkbox"].filled-in:checked+span:not(.lever):after {
+    border: 2px solid #00b6ad;
+    background-color: #00b6ad;
+}
+
+/* Date Display */
+.datepicker-date-display {
+    -webkit-box-flex: 1;
+    -webkit-flex: 1 auto;
+    -ms-flex: 1 auto;
+    flex: 1 auto;
+    background-color: #2b2b2b;
+    color: #fff;
+    padding: 20px 22px;
+    font-weight: 500;
+}
+
+.datepicker-table td.is-selected {
+    background-color: #1b1b1b;
+    color: #fff;
+}
+
+.datepicker-table td.is-today {
+    color: #fff;
+}
+
+.datepicker-cancel,
+.datepicker-clear,
+.datepicker-today,
+.datepicker-done {
+    color: #fff;
+    padding: 0 1rem;
+}
+
+.datepicker-calendar-container {
+    -webkit-box-flex: 2.5;
+    -webkit-flex: 2.5 auto;
+    -ms-flex: 2.5 auto;
+    flex: 2.5 auto;
+    background-color: #252525;
+    color: #fff;
+}
+
+.datepicker-controls {
+    background-color: #fff;
+    border-radius: 500px;
+    display: -webkit-box;
+    display: -webkit-flex;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-pack: justify;
+    -webkit-justify-content: space-between;
+    -ms-flex-pack: justify;
+    justify-content: space-between;
+    width: 280px;
+    margin: 0 auto;
+}
+
+/*Para los type radio*/
+[type="radio"]:checked + span:after,
+[type="radio"].with-gap:checked + span:after {
+  background-color: #fff;
+}
+
+[type="radio"]:checked + span:after,
+[type="radio"].with-gap:checked + span:before,
+[type="radio"].with-gap:checked + span:after {
+  border: 2px solid #fff;
+}
+
+/*Para el icono de prefijo*/
+.input-field .prefix {
+    color: rgb(168, 168, 168);
+}
+
+.input-field .prefix.active {
+    color: #fff;
+}
+
+/*Para los textos de los dropdown*/
+.dropdown-content li > a, .dropdown-content li > span {
+    font-size: 16px;
+    font-weight: 650;
+    background-color: #333333;
+    color: #fff;
+    display: block;
+    line-height: 22px;
+    padding: 14px 16px;
+}
+
+/*Para el reloj*/
+/* Clock Digital Display */
+.timepicker-digital-display {
+    -webkit-box-flex: 1;
+    -webkit-flex: 1 auto;
+    -ms-flex: 1 auto;
+    flex: 1 auto;
+    background-color: #333333;
+    border-radius: 20px 0 0 20px;
+    padding: 10px;
+    font-weight: 300;
+}
+
+.timepicker-canvas line {
+    stroke: #303030;
+    stroke-width: 4;
+    stroke-linecap: round;
+}
+
+.timepicker-canvas-out {
+    opacity: 0.25;
+}
+
+.timepicker-canvas-bearing {
+    stroke: none;
+    fill: #303030;
+}
+
+.timepicker-canvas-bg {
+    stroke: none;
+    fill: #303030;
+}
+
+/* Analog Clock Display */
+.timepicker-analog-display {
+    background-color: #3f3f3f;
+    -webkit-box-flex: 2.5;
+    -webkit-flex: 2.5 auto;
+    -ms-flex: 2.5 auto;
+    flex: 2.5 auto;
+}
+
+.timepicker-plate {
+    background-color: #4e4e4e;
+    border-radius: 50%;
+    width: 270px;
+    height: 270px;
+    overflow: visible;
+    position: relative;
+    margin: auto;
+    margin-top: 25px;
+    margin-bottom: 5px;
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+}
+
+.timepicker-tick {
+    border-radius: 50%;
+    color: #fff;
+    line-height: 40px;
+    text-align: center;
+    width: 40px;
+    height: 40px;
+    position: absolute;
+    cursor: pointer;
+    font-size: 15px;
+}
+
+.timepicker-close {
+    color: #fff;
+}
+
+@media only screen and (max-width: 601px) {
+    .timepicker-digital-display {
+        border-radius: 20px 20px 0 0;
+    }
+}

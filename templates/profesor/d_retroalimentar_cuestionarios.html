@@ -1,0 +1,153 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+    <title class="TDI">Retroalimentación</title>
+
+    <!--Jalamos todo el contenido del encabezado-->
+    {% include "includes/encabezadoRecursos.html" %}
+
+</head>
+
+<body class="oculto colorGrey">
+
+    <!--Jalamos todo el contenido del encabezado-->
+    {% include "includes/cargador.html" %}
+
+    <!--Menu de página de inicio-->
+    <nav class="color2">
+        <div class="nav-wrapper">
+            <a href="#" class="brand-logo hide-on-small-only TDI">Revisión y retroalimentación.</a>
+            <a href="bienvenidaProfesor" data-target="slide-out" class="sidenav-trigger"><i
+                    class="material-icons">arrow_back</i></a>
+            <p class="titleMobile colorText flow-text hide-on-med-and-up TDI">Revisión y retroalimentación.</p>
+            <ul class="right hide-on-med-and-down">
+                <li><a href="bienvenidaProfesor" class="btn color3 button-rounded TDI">Volver</a></li>
+            </ul>
+        </div>
+    </nav>
+
+
+    <!--Aqui se recibe el texto del JSON-->
+    <section class="previewResultadosCuestionario">
+        <section class="previewResultadosCuestionarioSon1">
+            <!--Si el examen ya fue completado se muestra una o la otra-->
+            <section id="readyResultaAlert" class="goodColor bordered1 shadow-1e generalInfoPreviewAlumno">
+                <p class="goodColor"><i class="material-icons">info</i> 
+                    <span class="TDI">
+                        El cuestionario ha sido revisado en su
+                        totalidad, presione el boton de finalizar para dar resolución a la apelación.
+                    </span>
+                </p>
+            </section>
+
+            <section id="pendingResultaAlert" class="sosoColor bordered1 shadow-1e generalInfoPreviewAlumno">
+                <p class="sosoColor"><i class="material-icons">info</i> 
+                    <span class="TDI">
+                        Algunas respuestas no pudieron ser evaluadas de
+                        forma manual o existen apelaciones por parte del estudiante.
+                    </span>
+                </p>
+            </section>
+
+            <section class="temporalFixedContainer">
+                <div class="hide-on-small-only">
+                    <h5><span class="TDI">Resultados</span> {{datosCuestionario[0][3]}}</h5>
+                </div>
+                <div>
+                    <h6 class="hide-on-small-only colorTextReverse TDI">Preguntas y puntaje</h6>
+                    <h5 class="hide-on-med-and-up colorTextReverse TDI">Preguntas y puntaje</h5>
+                </div>
+                <section class="previewResultadosCuestionarioSon1Grid">
+                    <div class="calificacionContainer colorGreyWhiter bordered2 shadow-1e">
+
+                    </div>
+                    <div class="puntosContainer colorGreyWhiter bordered2 shadow-1e">
+
+                    </div>
+                    <div class="estadoRetraso colorGreyWhiter bordered2 shadow-1e">
+
+                    </div>
+                    <div class="pendientesEstado colorGreyWhiter bordered2 shadow-1e">
+
+                    </div>
+                </section>
+                <section>
+                    <div class="accessCuestionarioLive">
+                        <form action="/terminarRetroalimentacion/{{idCuestionarioHecho}}" method="post">
+                            <!--Estos datos serán enviados a la BD-->
+                            <input type="hidden" name="idCuestionarioHecho" id="idCuestionarioHecho"
+                                value="{{idCuestionarioHecho}}">
+                            <input type="hidden" name="revisionEstado" id="revisionEstado">
+                            <!--Listo-->
+                            <input type="hidden" name="aprovacionEstado" id="aprovacionEstado">
+                            <input type="hidden" name="promedioGeneral" id="promedioGeneral">
+                            <input type="hidden" name="puntajeGeneral" id="puntajeGeneral">
+                            <input type="hidden" name="puntajeSegmentado" id="puntajeSegmentado">
+                            <input type="hidden" name="idEstudiante" id="idEstudiante" value="{{idEstudiante}}">
+                            <input type="hidden" id="storageLenguaje" name="storageLenguaje">
+                            <script>
+                                let storageLenguaje = document.getElementById('storageLenguaje');
+                                let idioma = localStorage.getItem('idioma');
+                                storageLenguaje.value = idioma;
+                            </script>
+                            <button type="submit"
+                                class="modal-trigger waves-effect waves-light btn-large bordered5 color1 shadow-2e"
+                                id="previewJsonResponder" style="width: 100%;">
+                                <i class="material-icons left">check</i>
+                                <span class="TDI">
+                                    Terminar revisión
+                                </span>
+                            </button>
+                        </form>
+                    </div>
+                </section>
+            </section>
+        </section>
+        <section class="previewResultadosCuestionarioSon2">
+            <div class="">
+                <h5 class="TDI">Preguntas/Respuestas cuestionario</h5>
+            </div>
+            <div class="previewPreguntasResultadosMain" id="previewPreguntasResultadosMain">
+
+            </div>
+        </section>
+    </section>
+
+    <!--Boton para ir hacia arriba-->
+    <div class="fixed-action-btn hiddenElement animate__animated" id="buttonGoUpTerminos">
+        <a class="btn-floating btn-large color4">
+            <i class="large material-icons">arrow_upward</i>
+        </a>
+    </div>
+
+    <!--Botones para que el gestor de idiomas no falle-->
+    <span class="hiddenElement" id="seleccionarEspanol"></span>
+    <span class="hiddenElement" id="seleccionarIngles"></span>
+    <span class="hiddenElement" id="seleccionarPortugues"></span>
+    <span class="hiddenElement" id="seleccionarChino"></span>
+
+</body>
+
+<!--Jalamos todo el contenido del encabezado-->
+{% include "includes/footerRecursos.html" %}
+
+<!--En esta parte todo los demás del script se hará en un archivo externo-->
+<script>
+    //Accedemos a los datos guardados en el JSON
+    const dataCuestionarioJSON = {{ dataJSON| tojson }}; 
+</script>
+<script src="../../static/js/operacionesTerminos.js"></script>
+<!--Archivo encargado de la revision-->
+<script src="../../static/js/operacionesCuestionariosResultadosRetroalimentacion_real.js"></script>
+<!--Archivo encargado de la recolección de metadatos-->
+<script src="../../static/js/operacionRecolectarMetadatosPuntajes.js"></script>
+<!--Archivo para validar casilla de apelacion-->
+<script src="../../static/js/validarCasillasDeApelacion.js"></script>
+
+<!--Traduccion-->
+<script src="../static/js/idiomas/textos.mjs" type="module"></script>
+<script src="../static/js/idiomas/gestorIdiomas.js" type="module"></script>
+
+<!--Esta parte necesita ser agregada aqui porque son cambios en tiempo real-->
+<script>

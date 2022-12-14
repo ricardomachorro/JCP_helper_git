@@ -1,0 +1,151 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <!--Jalamos todo el contenido del encabezado-->
+    {% include "includes/encabezadoRecursos.html" %}
+
+    <title class="TDI">Perfil de usuario</title>
+</head>
+
+<body class="ocultoc colorGreyWhiter">
+    <!--Jalamos todo el contenido del encabezado-->
+    {% include "includes/cargador.html" %}
+
+    <!--Menu de página de inicio-->
+    <nav class="color2 fixedNavbarMine">
+        <div class="nav-wrapper">
+            <a href="#" class="brand-logo hide-on-small-only TDI">Perfil de usuario.</a>
+            <a href="#" data-target="slide-out" class="sidenav-trigger"><i class="material-icons"></i></a>
+            <p class="titleMobile colorText flow-text hide-on-med-and-up TDI">Perfil de usuario.</p>
+        </div>
+    </nav>
+    <br><br>
+
+    <!--Header del icono de usuario-->
+    <section class="containerMasterProfile">
+        <div class="dataContainerUserMain">
+            {% if datos %}
+            <!-- Fondo con la foto elegida por el usuario -->
+            <div class="fondoDinamico fondoPerfilDiseno shadow-3e" style="background-image: url('{{datos[0][9]}}');">
+                <div class="iconEditContainer">
+                </div>
+            </div>
+
+            <!-- Datos del cliente -->
+            <div class="datos_perfil_container" id="datos_perfil_containerSelector">
+                <div>
+                    <img class="materialboxed fotoPerfil shadow-2e" src="../../static/images/alumnos/{{datos[0][3]}}"
+                        alt="foto del usuario">
+                </div>
+                <div class="allDataUserContainer">
+                    <p class="colorTextReverse nombre_perfil" id="datos_perfil_containerNombrePerfil">{{datos[0][1]}}
+                    </p>
+                    <p class="colorTextReverse alias_perfil" id="datos_perfil_containerAliasPerfil">{{datos[0][2]}}</p>
+                    <p class="colorTextReverse descripcion_perfil flow-text" id="datos_perfil_containerDescPerfil">
+                        {{datos[0][8]}}
+                    </p>
+                </div>
+                {% endif %}
+            </div>
+
+            <!--Nombre del cliente scroll-->
+            <div class="containerScrolled containerScrolledHide color3 shadow-2e" id="containerScrolled">
+                <div class="containerScrolledSon">
+                    {% if datos %}
+                    <img class="fotoPerfilScrolled" src="../../static/images/alumnos/{{datos[0][3]}}"
+                        alt="foto del usuario">
+                    <p class="nombreUsuarioScrolled titleMobile flow-text colorText">{{datos[0][1]}}</p>
+                    {% endif %}
+                </div>
+            </div>
+        </div>
+        <!-- Carousel de datos del cliente -->
+        <!--Seccion para dispositivos moviles-->
+        <section class="dataContainerFatherContainer colorGreyDarker">
+            <div>
+                {% if datos %}
+                <div class="title-general">
+                    <h5 class="hide-on-large-only TDI">Datos de la cuenta</h5>
+                    <h4 class="hide-on-med-and-down TDI">Datos de la cuenta</h4>
+                </div>
+                <div class="gridDataProfileContainer">
+                    <div class="itemDataGridGeneral shadow-1" id="itemDataGrid-1">
+                        <p class="iconDataProfile colorGrey"><i class="material-icons md-24 colorTextReverse">email</i>
+                            <span class="TDI">
+                                Contacto
+                            </span>
+                        </p>
+                        <p class="textDataProfile colorGreyWhiter">{{datos[0][4]}}</p>
+                    </div>
+                    <div class="itemDataGridGeneral shadow-1" id="itemDataGrid-2">
+                        <p class="iconDataProfile colorGrey"><i
+                                class="material-icons md-24 colorTextReverse">doorbell</i>
+                            <span class="TDI">
+                                Unidad
+                            </span>
+                        </p>
+                        <p class="textDataProfile colorGreyWhiter">{{datos[0][7]}}</p>
+                    </div>
+                    <div class="itemDataGridGeneral shadow-1" id="itemDataGrid-3">
+                        <p class="iconDataProfile colorGrey"><i class="material-icons md-24 colorTextReverse">adjust</i>
+                            <span class="TDI">
+                                Especialización
+                            </span>
+                        </p>
+                        <p class="textDataProfile colorGreyWhiter">{{datos[0][6]}}</p>
+                    </div>
+                </div>
+                {% endif %}
+            </div>
+        </section>
+        <!--Seccion para dispositivos moviles-->
+        <section class="postContainerParentStudent colorGrey">
+            <div>
+                <div class="title-general">
+                    <h5 class="hide-on-large-only TDI">Publicaciones</h5>
+                    <h4 class="hide-on-med-and-down TDI">Publicaciones</h4>
+                </div>
+                {% if post %}
+                <div class="gridPostUser">
+                    {%for i in range(0, post|length)%}
+                    <div class="postGeneral fotoValuePost borderDecoration">
+                        <div class="color2 colorText tituloPost">{{post[i][2]}}</div>
+                        <div class="imagePost" style="background-image:url('{{post[i][4]}}');"></div>
+                        <div class="descriptionPostView colorGreyWhiter colorTextReverse">{{post[i][3]}}</div>
+                    </div>
+                    {% endfor %}
+                </div>
+                {% else %}
+            </div>
+        </section>
+        <section class="colorGrey">
+            <div class="notFoundMsg">
+                <div>
+                    <h5 class="colorTextReverse"><b>No post.</b></h5>
+                </div>
+                <div><img src="../../static/images/icons/icon_no_results.svg"></div>
+            </div>
+        </section>
+        {% endif %}
+    </section>
+
+    <!--Botones para que el gestor de idiomas no falle-->
+    <span class="hiddenElement" id="seleccionarEspanol"></span>
+    <span class="hiddenElement" id="seleccionarIngles"></span>
+    <span class="hiddenElement" id="seleccionarPortugues"></span>
+    <span class="hiddenElement" id="seleccionarChino"></span>
+
+</body>
+
+<!--Jalamos todo el contenido del encabezado-->
+{% include "includes/footerRecursos.html" %}
+
+
+<script src="../../static/js/insertThemes.js"></script>
+<script src="../../static/js/perfilUsuarioPost.js"></script>
+
+<script src="../static/js/idiomas/textos.mjs" type="module"></script>
+<script src="../static/js/idiomas/gestorIdiomas.js" type="module"></script>
+
+</html>

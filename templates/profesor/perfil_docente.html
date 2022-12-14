@@ -1,0 +1,318 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <!--Jalamos todo el contenido del encabezado-->
+    {% include "includes/encabezadoRecursos.html" %}
+
+    <title class="TDI">Perfil de usuario</title>
+</head>
+
+<body class="ocultoc colorGreyWhiter">
+    <!--Jalamos todo el contenido del encabezado-->
+    {% include "includes/cargador.html" %}
+
+    <!--Menu de página de inicio-->
+    <nav class="color2 fixedNavbarMine">
+        <div class="nav-wrapper">
+            <a href="#" class="brand-logo hide-on-small-only TDI">Perfil del docente.</a>
+            <a href="#" data-target="slide-out" class="sidenav-trigger"><i class="material-icons">arrow_back</i></a>
+            <p class="titleMobile colorText flow-text hide-on-med-and-up TDI">Perfil del docente.</p>
+            <ul class="right hide-on-med-and-down">
+                <li><a href="bienvenidaProfesor" class="btn color3 button-rounded TDI">Volver.</a></li>
+            </ul>
+        </div>
+    </nav>
+    <br><br>
+
+    <!--Header del icono de usuario-->
+    <section class="containerMasterProfile">
+        <div class="dataContainerUserMain">
+            {% if datos %}
+            <!-- Fondo con la foto elegida por el usuario -->
+            <div class="fondoDinamico fondoPerfilDiseno shadow-3e" id="fondoDinamicoUsuario"
+                style="background-image:url('{{datos[8]}}')">
+                <div class="iconEditContainer">
+                    <p>
+                        <a href="#modal1"
+                            class="modal-trigger colorGreyWhiter bordered2 shadow-2e colorTextReverse waves-effect"><i
+                                class="material-icons">photo_library</i></a>
+                    </p>
+                    &nbsp;&nbsp;
+                    <p>
+                        <a href="/configuraciones_docente"
+                            class="modal-trigger colorGreyWhiter bordered2 shadow-2e colorTextReverse waves-effect"><i
+                                class="material-icons">settings</i></a>
+                    </p>
+                </div>
+            </div>
+
+            <!-- Datos del cliente -->
+            <div class="datos_perfil_container" id="datos_perfil_containerSelector">
+                <div>
+                    <a href="#modalFoto" class="modal-trigger">
+                        <div class="fondoLinkOff" id="opcionesFoto"></div>
+                    </a>
+                    <img class="materialboxed fotoPerfil shadow-2e" src="../../static/images/docentes/{{datos[3]}}"
+                        alt="foto del usuario">
+                </div>
+                <div class="allDataUserContainer">
+                    <p class="colorTextReverse nombre_perfil" id="datos_perfil_containerNombrePerfil">{{datos[1]}}</p>
+                    <p class="colorTextReverse alias_perfil" id="datos_perfil_containerAliasPerfil">{{datos[2]}}</p>
+                    <p class="colorTextReverse descripcion_perfil flow-text" id="datos_perfil_containerDescPerfil">
+                        {{datos[7]}}
+                    </p>
+                </div>
+                {% endif %}
+            </div>
+
+            <!-- Modal con opciones de las fotos -->
+            <div id="modalFoto" class="modal colorWhite bottom-sheet" style="height: 30vh;">
+                <div class="modal-content">
+                    <h5 class="TDI">Opciones</h5>
+                    <br>
+                    <section class="row optionsFotoContainer">
+                        <div class="col s12 m6">
+                            <div class="cardConfiguracionesMain shadow-2 bordered1 colorGreyWhiter">
+                                <div class="iconCardConfiguraciones color1 bordered5 shadow-2e"><i
+                                        class="material-icons colorText">visibility</i></div>
+                                <div class="textCardConfiguraciones colorTextReverse TDI">Ver foto</div>
+                            </div>
+                        </div>
+                        <a href="#modalSubirFoto" class="modal-trigger">
+                            <div class="col s12 m6">
+                                <div class="cardConfiguracionesMain shadow-2 bordered1 colorGreyWhiter">
+                                    <div class="iconCardConfiguraciones color1 bordered5 shadow-2e"><i
+                                            class="material-icons colorText">edit</i></div>
+                                    <div class="textCardConfiguraciones colorTextReverse TDI">Modificar foto</div>
+                                </div>
+                            </div>
+                        </a>
+                    </section>
+                </div>
+            </div>
+
+            <!-- Modal con opciones de las fotos -->
+            <div id="modalSubirFoto" class="modal bottom-sheet" style="height: 80vh;">
+                <div class="modal-content">
+                    <h5 class="TDI">Cambiar foto</h5>
+                    <br>
+                    <form enctype="multipart/form-data" action="/editarFotoPerfilDocente/{{datos[0]}}" method="post">
+                        <section class="optionsFotoContainer">
+                            <div class="centerAligner verticalAligner">
+                                <div>
+                                    <image id="profileImageProf" src="../../static/images/avatares/avatar_empty.jpg"
+                                        style="width: 110px; height: 110px;" class="shadow-4" />
+                                </div>
+                                <br>
+                                <div style="padding: 5px 40px 10px 40px;" class="centerAligner">
+                                    <label for="imageUploadProf"
+                                        class="centerAligner custom-file-upload color3 btn-large waves-effect waves-light button-rounded">
+                                        <i class="fa fa-cloud-upload"></i>
+                                        <span class="TDI">
+                                            Elegir
+                                        </span>
+                                    </label>
+                                    <input id="imageUploadProf" name="foto" type="file" required />
+                                    <button type="submit"
+                                        class="btn-large color1 waves-effect waves-light button-rounded"><i
+                                            class="material-icons">save</i></button>
+                                </div>
+                            </div>
+                        </section>
+                    </form>
+                </div>
+            </div>
+
+            <!--Nombre del cliente scroll-->
+            <div class="containerScrolled containerScrolledHide color3 shadow-2e" id="containerScrolled">
+                <div class="containerScrolledSon">
+                    {% if datos %}
+                    <img class="fotoPerfilScrolled" src="../../static/images/docentes/{{datos[3]}}"
+                        alt="foto del usuario">
+                    <p class="nombreUsuarioScrolled titleMobile flow-text colorText">{{datos[1]}}</p>
+                    {% endif %}
+                </div>
+            </div>
+        </div>
+        <!-- Carousel de datos del cliente -->
+        <!--Seccion para dispositivos moviles-->
+        <section class="dataContainerFatherContainer colorGreyDarker">
+            <div>
+                {% if datos %}
+                <div class="title-general">
+                    <h5 class="hide-on-large-only TDI">Datos de la cuenta</h5>
+                    <h4 class="hide-on-med-and-down TDI">Datos de la cuenta</h4>
+                </div>
+                <div class="gridDataProfileContainer">
+                    <div class="itemDataGridGeneral shadow-1" id="itemDataGrid-1">
+                        <p class="iconDataProfile colorGrey"><i class="material-icons md-24 colorTextReverse">email</i>
+                            <span class="TDI">
+                                Contacto
+                            </span>
+                        </p>
+                        <p class="textDataProfile colorGreyWhiter">{{datos[4]}}</p>
+                    </div>
+                    <div class="itemDataGridGeneral shadow-1" id="itemDataGrid-2">
+                        <p class="iconDataProfile colorGrey"><i
+                                class="material-icons md-24 colorTextReverse">doorbell</i>
+                            <span class="TDI">
+                                Unidad
+                            </span>
+                        </p>
+                        <p class="textDataProfile colorGreyWhiter">{{datos[6]}}</p>
+                    </div>
+                </div>
+                {% endif %}
+            </div>
+        </section>
+
+        <!--Seccion para dispositivos moviles-->
+        <section class="postContainerParent colorGrey">
+            <div>
+                <div class="title-general">
+                    <h5 class="hide-on-large-only TDI">Publicaciones</h5>
+                    <h4 class="hide-on-med-and-down TDI">Publicaciones</h4>
+                </div>
+                <div class="postCreatorContainer">
+                    <input href="#modalPublicacion" type="text" name="postCreator"
+                        class="modal-trigger browser-default shadow-1" id="postCreatorInput" placeholder="🖋️ Post">
+                </div>
+                {% if post %}
+                <div class="gridPostUser">
+                    {%for i in range(0, post|length)%}
+                    <div class="postGeneral fotoValuePost borderDecoration">
+                        <div class="color2 colorText tituloPost">{{post[i][2]}}</div>
+                        <div class="imagePost" style="background-image:url('{{post[i][4]}}');"></div>
+                        <div class="descriptionPost colorGreyWhiter colorTextReverse">{{post[i][3]}}</div>
+                        <div class="actionPost colorGreyWhiter">
+                            <a href="#modalBorrado{{post[i][0]}}"
+                                class="modal-trigger btn waves-effect colorGreyDarker bordered5"><i
+                                    class="material-icons colorTextReverse md-24">delete</i></a>
+                            <a href="editarPost/{{post[i][0]}}"
+                                class="modal-trigger btn waves-effect colorGreyDarker bordered5"><i
+                                    class="material-icons colorTextReverse md-24">edit</i></a>
+                        </div>
+                    </div>
+
+                    <!--Pop up de eliminar el post-->
+                    <div id="modalBorrado{{post[i][0]}}" class="modal bordered2 colorGrey">
+                        <div class="modal-content">
+                            <h4>¿🚮?😕</h4>
+                            <hr>
+                            <a href="/deletePost/{{post[i][0]}}"
+                                class="waves-effect waves-light btn badColorButton shadow-2e button-rounded"
+                                style="width: 100%;"><i class="material-icons">delete</i></a>
+                        </div>
+                    </div>
+                    {% endfor %}
+                </div>
+                {% else %}
+            </div>
+        </section>
+        <section class="colorGrey">
+            <div class="notFoundMsg">
+                <div>
+                    <h5><b>No posts.</b></h5>
+                </div>
+                <div><img src="../../static/images/icons/icon_no_results.svg"></div>
+            </div>
+        </section>
+        {% endif %}
+    </section>
+
+    <!--Modal para publicar nuevas cosas-->
+    <div id="modalPublicacion" class="modal bordered2 colorGrey" style="height: 80vh !important;">
+        <div class="modal-content">
+            <h5 class="TDI">Crear un nuevo POST</h5>
+            <p class="TDI">Haga una publicación para que otros usuarios en la plataforma puedan verla.</p>
+            <hr>
+            <form class="col s12 popUpForm bordered2 colorGreyWhiter shadow-2e" action="crearPost/{{datos[0]}}"
+                method="post">
+
+                <h5 class="TDI">Datos del POST</h5>
+                <div class="row">
+                    <div class="input-field col s12 m12 l6">
+                        <input id="tituloPost" name="tituloPost" type="text" class="validate colorTextReverse">
+                        <label for="tituloPost" class="TDI">Titulo del post</label>
+                    </div>
+                    <div class="input-field col s12 m12 l6">
+                        <textarea id="descripcionPost" name="descripcionPost" class="validate materialize-textarea colorTextReverse"
+                            data-length="100"></textarea>
+                        <label for="descripcionPost" class="TDI">Descripción del post</label>
+                    </div>
+                </div>
+
+                <h5 class="TDI">Multimedia</h5>
+                <div class="row">
+                    <div class="input-field col s12 m12">
+                        <input placeholder="Fondo para el grupo" id="fondoPost" name="fondoPost" type="text"
+                            value="No foto" class="colorTextReverse">
+                        <label for="fondoPost" class="TDI">URL de imagen</label>
+                    </div>
+                </div>
+
+                <button type="submit" class="btn-large color2 bordered5 buttonPopUp TDI">Crear</button>
+
+            </form>
+        </div>
+    </div>
+
+    <!-- Modal para elegir el tema del perfil -->
+    <div id="modal1" class="modal bordered2 colorGreyDarker" style="height: 100vh !important;">
+        <div class="modal-content">
+            <h5 class="TDI">Ingresar URL</h5>
+            <p class="TDI">Agregar una imagen de internet para el perfil.</p>
+            <hr>
+            <div class="colorGreyWhiter addThemeOnlineContainer shadow-1">
+                <input id="fotoThemeSelectorUrl" type="text" name="fotoThemeSelectorUrl" value="">
+                <a id="fotoThemeSelectorUrlButton" style="width: 100%;" href="#"
+                    class="waves-effect btn color3 button-rounded"><i
+                        class="material-icons left md-24">add_photo_alternate</i>
+                    <span class="TDIs">
+                        Agregar
+                    </span>
+                </a>
+            </div>
+            <br>
+            <h5 class="TDI">Temas offline</h5>
+            <p class="TDI">Agregar una imagen para el perfil sin necesidad de conexión a internet</p>
+            <hr>
+            <div class="fotosSelector">
+                <div class="fotosIndividual">
+                    <div class="row" id="popUpThemes">
+                        <!-- Se insertan los elementos del selector de temas. -->
+                    </div>
+                </div>
+            </div>
+        </div>
+        <form method="POST" id="fondoForm" action="/guardarFondo/{{datos[0]}}">
+            <input type="hidden" id="guardarFondoInput" name="fondo">
+            <button type="button" id="guardarFondoButton" onclick="submitForm()" style="display: none;"></button>
+        </form>
+    </div>
+
+    <!--Boton para ir hacia arriba-->
+    <div class="fixed-action-btn">
+        <a class="btn-floating btn-large color1" href="/editarPerfilProfesor/{{datos[0]}}">
+            <i class="large material-icons">edit</i>
+        </a>
+    </div>
+    <!--Botones para que el gestor de idiomas no falle-->
+    <span class="hiddenElement" id="seleccionarEspanol"></span>
+    <span class="hiddenElement" id="seleccionarIngles"></span>
+    <span class="hiddenElement" id="seleccionarPortugues"></span>
+    <span class="hiddenElement" id="seleccionarChino"></span>
+
+</body>
+
+<!--Jalamos todo el contenido del encabezado-->
+{% include "includes/footerRecursos.html" %}
+<script src="../../static/js/insertThemes.js"></script>
+<script src="../../static/js/operacionesOpcionesFoto.js"></script>
+<script src="../../static/js/perfilUsuarioPost.js"></script>
+
+<script src="../static/js/idiomas/textos.mjs" type="module"></script>
+<script src="../static/js/idiomas/gestorIdiomas.js" type="module"></script>
+
+</html>

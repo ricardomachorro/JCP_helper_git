@@ -1,0 +1,175 @@
+<script src='https://cdn.plot.ly/plotly-2.14.0.min.js'></script>
+<script src="https://code.jquery.com/jquery-3.6.0.js" integrity="sha256-H+K7U5CnXl1h5ywQfKtSj8PCmoN9aaq30gDh27Xc0jk="
+    crossorigin="anonymous"></script>
+
+<!--Seccion de datos relevantes en las estadisticas
+            para los dispositivos moviles.-->
+<div class="title-general colorGrey titleGraficas" style="margin: 20px 0px 0px 0px;">
+    <h5 class="hide-on-large-only TDI">&nbsp;&nbsp;&nbsp;&nbsp;Gráficas globales</h5>
+    <h4 class="hide-on-med-and-down TDI">&nbsp;&nbsp;&nbsp;&nbsp;Gráficas globales</h4>
+</div>
+
+<!--SECCION PARA LAS TABLETAS Y PARA LAS COMPUTADORAS DE ESCRITORIO-->
+
+<!--Listado de los elementos-->
+<section style="margin: 20px 40px 20px 40px;" class="row" id="dashboardGrafGruposSegmento">
+    <div class="col s12 m12 l6">
+        <div class="bordered2 shadow-2e cuerpoCardGraficaDashboard colorWhite">
+            <div class="tituloCardGrafica flow-text bordered2Up colorGreyWhiter">
+                <div class="tituloCardGraficaText TDI colorTextReverse">
+                    Promedio general de grupos.
+                </div>
+            </div>
+            <div class="graficoCardGrafica centerAligner">
+                <div id="graph1"></div>
+            </div>
+            <div class="bordered2Down centerAligner colorGrey viewsGraps">
+                <div>
+                    <a class='btn button-rounded colorGreyWhiter colorTextReverse'
+                        onclick="grafica_barras_promedio_general()"><i class="material-icons md-24">bar_chart</i></a>
+                </div>
+                <div>
+                    <a class='btn button-rounded colorGreyWhiter colorTextReverse'
+                        onclick="grafica_lineal_promedio_general()"><i class="material-icons md-24">ssid_chart</i></a>
+                </div>
+                <div>
+                    <a class='btn button-rounded colorGreyWhiter colorTextReverse'
+                        onclick="grafica_pastel_promedio_general()"><i class="material-icons md-24">pie_chart</i></a>
+                </div>
+
+
+              
+
+
+            </div>
+        </div>
+    </div>
+    <div class="col s12 m12 l6">
+        <div class="bordered2 shadow-2e cuerpoCardGraficaDashboard colorWhite">
+            <div class="tituloCardGrafica flow-text bordered2Up colorGreyWhiter">
+                <div class="tituloCardGraficaText TDI colorTextReverse">
+                    Aprobación general de grupos.
+                </div>
+                <div class="porcentageGraficaText">
+                    <span class="porcentageGrafica colorTextReverse"><i class="porcentageNumero"
+                            id="trendGlobalAprobacion">0</i>%</span>
+                    <div class="porcentageGraficaTrends">
+                        <span class="tendenciaGrafica goodColor"><i class="material-icons">trending_up</i></span>
+                        <span class="tendenciaGrafica badColor"><i class="material-icons">trending_down</i></span>
+                        <span class="tendenciaGrafica infoColor"><i class="material-icons">trending_flat</i></span>
+                    </div>
+                </div>
+            </div>
+            <div class="graficoCardGrafica centerAligner">
+                <div id="graph2"></div>
+            </div>
+            <div class="bordered2Down centerAligner colorGrey viewsGraps">
+                <div>
+                    <a class='btn button-rounded colorGreyWhiter colorTextReverse'
+                        onclick="grafica_barras_indice_aprobacion()"><i class="material-icons md-24">stacked_bar_chart</i></a>
+                </div>
+                <div>
+                    <a class='btn button-rounded colorGreyWhiter colorTextReverse'
+                        onclick="barras_porcentage_por_grupo_aprobacion()"><i
+                            class="material-icons md-24">insights</i></a>
+                </div>
+                <div>
+                    <a class='btn button-rounded colorGreyWhiter colorTextReverse'
+                        onclick="grafica_pastel_indice_aprobacion()"><i class="material-icons md-24">pie_chart</i></a>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+
+<!--Contenedor de opciones de reportes-->
+<section class="contenedorGrupos">
+    <div class="tituloCardGraficaText">
+        <h5 class="TDI colorTextReverse">
+            Reporte global
+        </h5>
+    </div>
+    <div>
+        <form action="{{ url_for('routes.crear_reportes_grupos_docentes_PDF') }}" method="post" id="formGruposReporte">
+
+            <!--Elementos de grafica Promedio general de grupos.-->
+            
+            
+            <!--Comparacion de promedios grupales-->
+            <input type="hidden" id="xComparacionPromedioGrupales" name="xComparacionPromedioGrupales">
+            <input type="hidden" id="yComparacionPromedioGrupales" name="yComparacionPromedioGrupales">
+            
+            <!--Historico de puntajes en cada evaluación de cada grupo-->
+            <input type="hidden" id="HistoricoPuntajesEvaluacionGrupo" name="HistoricoPuntajesEvaluacionGrupo">
+            
+            <!--indice porcentuales de promedios-->
+            <input type="hidden" id="valoresPastel" name="valoresPastel">
+            <input type="hidden" id="labelsPastel" name="labelsPastel">
+            <input type="hidden" id="datosGrupo" name="datosGrupo">
+            <input type="hidden" id="PorcentajeAprobacionAproReportesPY" name="PorcentajeAprobacionAproReportesPY">
+            
+            <!--Elementos de grafica Aprobación general de grupos-->
+            
+            <!-- Compración reprobados vs reprobados-->
+            
+            <input type="hidden" id="comparacionReprovadosAprovadosBarra" name="comparacionReprovadosAprovadosBarra">
+            
+            <!--Datos aprovacion porcentaje-->
+            
+            <input type="hidden" id="aprobadosFormatoDiezReporte" name="aprobadosFormatoDiezReporte">
+            <input type="hidden" id="porcentajeGlobalAprobadorReporte" name="porcentajeGlobalAprobadorReporte">
+            <input type="hidden" id="porcentajeGlobalReprobadorReporte" name="porcentajeGlobalReprobadorReporte">
+            <input type="hidden" id="gruposAprobadosReprobadosReporte" name="gruposAprobadosReprobadosReporte">
+            
+            <!--Porcentaje aprobados vs reprobados-->
+            <input type="hidden" id="arrayPorcentajeAprobacionPastel" name="arrayPorcentajeAprobacionPastel">
+            <input type="hidden" id="graficasTitlelabelsPastel" name="graficasTitlelabelsPastel">
+            
+            <!--Datos-->
+            <input type="hidden" id="datosGrupo" name="datosGrupo">
+            <input type="hidden" id="PorcentajeAprobacionAproReportes" name="PorcentajeAprobacionAproReportes">
+            <input type="hidden" id="PorcentajeAprobacionRepReportes" name="PorcentajeAprobacionRepReportes">
+            <input type="hidden" id="IntentosPromedioReportes" name="IntentosPromedioReportes">
+            <input type="hidden" id="RangoCalMinReportes" name="RangoCalMinReportes">
+            <input type="hidden" id="RangoCalMaxReportes" name="RangoCalMaxReportes">
+            <input type="hidden" id="IndiceAprobReportes" name="IndiceAprobReportes">
+            <input type="hidden" id="PromedioTiempoRespuestasReportes" name="PromedioTiempoRespuestasReportes">
+            <input type="hidden" id="GruposAtiempoReporte" name="GruposAtiempoReporte">
+            <input type="hidden" id="GruposRetrasoReporte" name="GruposRetrasoReporte">
+
+
+            <button class='btn button-rounded colorGreyWhiter colorTextReverse' type="submit"><i
+                    class="material-icons md-24">arrow_downward</i></button>
+        </form>
+    </div>
+</section>
+
+<!--Contenedor de elementos por grupo-->
+<section class="contenedorGrupos">
+    <!--Listado de los informes.-->
+    <ul class="collapsible bordered2 colorWhite">
+        {%for i in range(0, datosGrupo|length)%}
+        <li>
+            <div class="collapsible-header bordered2 colorWhite colorTextReverse"><i class="material-icons">groups_3</i>{{datosGrupo[i][2]}}
+                <span class="colorGrey colorTextReverse bordered5 porcentajeAprobacionContadorIndividual"></span> <!--Aqui van los indice de aprobacion-->
+            </div>
+            <div class="collapsible-body">
+                <section class="contenedorGrupoIndividualInsights">
+                    
+                </section>      
+            </div>
+        </li>
+        {%endfor%}
+    </ul>
+</section>
+
+<script>
+    $(window).on("load", function () {
+        barras_porcentage_por_grupo_aprobacion();
+        grafica_barras_indice_aprobacion();
+        grafica_lineal_promedio_general();
+        grafica_barras_promedio_general();
+    });
+</script>
+

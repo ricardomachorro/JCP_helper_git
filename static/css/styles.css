@@ -1,0 +1,832 @@
+
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@100&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Ubuntu:wght@300&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@100&display=swap');
+
+.material-icons.md-12 { font-size: 12px; }
+.material-icons.md-16 { font-size: 16px; }
+.material-icons.md-18 { font-size: 18px; }
+.material-icons.md-22 { font-size: 22px; }
+.material-icons.md-24 { font-size: 24px; }
+.material-icons.md-28 { font-size: 28px; }
+.material-icons.md-32 { font-size: 32px; }
+.material-icons.md-36 { font-size: 36px; }
+.material-icons.md-48 { font-size: 48px; }
+
+.hiddenElement{
+	display: none !important;
+}
+
+h1,h2,h3 { 
+    font-family: 'Montserrat-Black',sans-serif;  
+
+}
+h2,h3{
+    font-weight: bold;
+}
+/* Mensaje de error en el login*/
+#error_login {
+	text-align: center;
+    background-color: rgb(223, 141, 141) !important;
+	padding: 3px 3px;
+	margin-bottom: 15px !important;
+	border-radius: 500px;
+	width: 70%;
+	margin: auto;
+	box-shadow: 0 1px 3px rgba(0,0,0,0.12), 0 1px 2px rgba(0,0,0,0.24);
+}
+#error_login p{
+	font-weight: 900;
+	font-size: 16px;
+    color: rgb(71, 20, 20) !important;
+	font-family: 'Roboto', sans-serif;
+}
+
+/*Mensaje de login exitoso*/
+#login_success {
+	text-align: center;
+    background-color: rgb(141, 223, 166) !important;
+	padding: 3px 3px;
+	margin-bottom: 15px !important;
+	border-radius: 500px;
+	width: 70%;
+	margin: auto;
+	box-shadow: 0 1px 3px rgba(0,0,0,0.12), 0 1px 2px rgba(0,0,0,0.24);
+}
+#login_success p{
+	font-weight: 900;
+	font-size: 16px;
+    color: rgb(20, 66, 34) !important;
+	font-family: 'Roboto', sans-serif;
+}
+
+
+.mainBody{
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	flex-direction: column;
+
+	width: 100%;
+	padding: 20px;
+}
+
+.mainBodyAdicional{
+    padding: 0;
+}
+
+/*Estilos para el carousel de la página del desktop*/
+
+.carouselOne, .carouselTwo, .carouselThree, .carouselFour{
+	background-position: center;
+	background-size: cover;
+	background-repeat: no-repeat;
+	background-origin: initial;
+}
+
+.carouselOne{background-image: url('../images/carousel_one.jpg');}
+.carouselTwo{background-image: url('../images/carousel_two.jpg');}
+.carouselThree{background-image: url('../images/carousel_three.jpg');}
+.carouselFour{background-image: url('../images/carousel_four.jpg');}
+
+/*Sección de bienvenida*/
+
+.title-general{
+	display: flex;
+	align-items: center;
+	justify-content: left;
+	width: 100%;
+	height: auto;
+}
+
+.title-general{
+	padding: 0 0 10px 20px;
+}
+
+.card-bienvenida,.card-bienvenida-text{
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	flex-direction: column;
+	width: 80%;
+	margin-top: 10px;
+
+	border-radius: 20px;
+
+	/*En la parte de los estilos*/
+	background-repeat: no-repeat;
+	background-position: center;
+	background-size: cover;
+}
+
+.card-bienvenida-button-welcome{padding: 30px;}
+.card-bienvenida-text{height: 100px;}
+.card-bienvenida-text > p{
+	font-size: 20px;
+	font-weight: 400;
+	font-family: Roboto;
+}
+
+.card-bienvenida{height: 300px;}
+.card-bienvenida-signup{
+	height: auto;
+}
+
+.cards-bienvenida-desktop{
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	flex-direction: row;
+	
+	width: 70%;
+}
+
+.cards-bienvenida-desktop > div{
+	margin: 0 50px 0 50px;
+}
+
+/*Estilos para el pie de página*/
+
+.footer {
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	
+	padding-bottom: 10px;
+	text-align: center;
+	bottom: 0;
+	width: 100%;
+	height: 60px;
+	background-color:rgb(228, 228, 228);
+}
+
+.footer p {
+	margin-top: 25px;
+	font-size: 12px;
+    color: #777;
+    letter-spacing: 1px;
+    font-family: "Helvetica Neue",Helvetica,Arial,sans-serif;
+}
+
+/*Image picker*/
+input[type="file"] {
+    display: none;
+}
+.custom-file-upload {
+    cursor: pointer;
+}
+
+#profileImageEst, #profileImageProf {
+    -webkit-border-radius: 50%;
+    -moz-border-radius: 50%;
+    -ms-border-radius: 50%;
+    -o-border-radius: 50%;
+    border-radius: 50%;
+}
+
+/*Diseño para los navbar en dispositivos móbiles*/
+
+.titleMobile{
+	margin: 0px !important;
+}
+
+/*butttons*/
+
+.buttons-bienvenida, .button-rounded{
+	border-radius: 30px !important;
+}
+
+.buttonMax{
+	width: 100%;
+}
+
+/*Vinculos auxiliares para recuperar contraseñas, etc*/
+
+.linkAuxiliar{
+	font-style: italic;
+	font-weight: 500;
+	text-decoration: underline;
+}
+
+.linkAuxiliarHuge{
+	font-style: italic;
+	font-weight: 500;
+	text-decoration: underline;
+	font-size: 15px;
+}
+
+.linkNull{
+	text-decoration: none;
+}
+
+/*Alinear los elementos al centro con una clase*/
+.centerAligner{
+	display: flex !important;
+	justify-content: center !important;
+	align-items: center !important;
+	width: 100% !important;
+}
+
+.centerAlignerNoWidth{
+	display: flex !important;
+	justify-content: center !important;
+	align-items: center !important;
+}
+
+.centerLeftAligner{
+	display: flex !important;
+	justify-content: center !important;
+	align-items: left !important;
+	width: 100% !important;
+}
+
+.centerLeftHorizontalAligner{
+	display: flex !important;
+	justify-content: left !important;
+	align-items: left !important;
+	flex-direction: row !important;
+	width: 100% !important;
+}
+
+.verticalAligner{
+	flex-direction: column !important;
+}
+
+.horizontalAligner{
+	flex-direction: row !important;
+}
+
+/* card para las publicaciones de los docentes */
+.card-publicacion{
+	padding: 30px;
+	background-image: url('../images/fondos/verde/verde_1.png');
+}
+
+.btn-publicar{
+	border-radius: 15px;
+	height: 40px;
+	width: 100px;
+	transition: height 2s ease 0s;
+	transition: width 2s ease 0s;
+}
+.btn-publicar:hover{
+	height: 60px;
+	width: 112px;
+	border-radius: 15px;
+}
+
+/*Estilos para los formularios*/
+.popUpForm{
+	padding: 10px 20px;
+}
+
+.buttonPopUp{
+	width: 100%;
+}
+
+/*auto padding*/
+.paddingerStyleNotificacion{
+	padding: 10px 20px 20px 20px;
+	margin-bottom: 10px;
+}
+
+#contadorNotificacion{
+	display: flex;
+	justify-content: center;
+	align-content: center;
+
+	position: absolute;
+	top: 15px;
+	right: 5px;
+	z-index: 1000;
+
+	font-weight: 600;
+
+	width: 20px !important;
+}
+
+.muestraFondoForm{
+	width: 100%;
+	height: 100px;
+}
+
+.muestraCodigoGrupo{
+	width: auto;
+	height: auto;
+	padding: 10px;
+	box-sizing: border-box;
+	font-weight: 600;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	text-align: center;
+}
+
+/*buscador para la pagina de bienvenida de alumno*/
+.contenedorBuscadorGrupo{
+	width: 100%;
+	height: 400px;
+}
+
+@media screen and (max-width: 600px) {
+    .contenedorBuscadorGrupo{
+		margin-top: 50px;
+	}
+}
+
+.buscadorContainerMainStudent,.buscadorContainerMainStudent form {
+	width: 100%;
+	height: auto;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	flex-direction: row;
+}
+
+.buscadorContainerMainStudent form button{
+	margin-left: 10px;
+	position: relative;
+	top: -25px;
+}
+
+.buscadorContainerMainStudent input{
+	width: 60%;
+	padding: 15px 20px;
+    font-size: 18px;
+    display: inline-block;
+    border: #fff solid 0px;
+    color: #000;
+    outline: none !important;
+    border-radius: 500px;
+
+	position: relative;
+	top: -25px;
+}
+
+.resultadoContainerMainStudent{
+	display: flex;
+	justify-content: center;
+	align-items: center;
+}
+
+.cardBusquedaGrupoMain{
+	width: 80%;
+	border-radius: 20px;
+	display: grid;
+	grid-template-columns: repeat(3, 1fr) ;
+	grid-template-rows: repeat(4, 60px);
+	grid-template-areas:
+		"area1 area2 area2"
+		"area1 area3 area3"
+		"area1 area3 area3"
+		"area1 area4 area4"
+	;
+	gap: 0;
+	margin: 20px;
+}
+
+
+.part1cardBusquedaGrupoMain{
+	grid-area: area1;
+	border-radius: 20px 0 0 20px;
+	background-position: center;
+	background-size: cover;
+	background-repeat: no-repeat;
+}
+
+.part2cardBusquedaGrupoMain{
+	grid-area: area2;
+	border-radius: 0 20px 0 0;
+	font-size: 20px;
+	display: flex;
+	justify-content: left;
+	align-items: center;
+	padding:  0 0 0 10px;
+}
+
+.part3cardBusquedaGrupoMain{
+	grid-area: area3;
+	padding: 10px;
+	font-size: 14px;
+	font-weight: 700;
+}
+
+.part4cardBusquedaGrupoMain{
+	grid-area: area4;
+	border-radius: 0 0 20px 0;
+	padding: 5px 40px;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+}
+
+.part4cardBusquedaGrupoMain a{
+	width: 100%;
+}
+
+@media screen and (max-width: 600px) {
+	.cardBusquedaGrupoMain{
+		width: 80%;
+		border-radius: 10px;
+		display: grid;
+		grid-template-columns: repeat(3, 1fr) ;
+		grid-template-rows: 60px auto 60px;
+		grid-template-areas:
+			"area2 area2 area2"
+			"area3 area3 area3"
+			"area4 area4 area4"
+		;
+		gap: 0;
+		margin: 20px;
+	}
+
+	.part1cardBusquedaGrupoMain{
+		display: none;
+	}
+
+	.part2cardBusquedaGrupoMain{
+		border-radius: 10px 10px 0 0;
+		padding-left: 20px;
+	}
+
+	.part3cardBusquedaGrupoMain{
+		padding: 10px 20px;
+	}
+	
+	.part4cardBusquedaGrupoMain{
+		border-radius: 0 0 10px 10px;
+	}
+}
+
+@media screen and (min-width: 1200px) {
+	.cardBusquedaGrupoMain{
+		width: 60%;
+	}
+}
+
+/*Mensjaes de error*/
+.notFoundMsg{
+	display: grid;
+	grid-template-columns: 1fr;
+	grid-template-rows: auto;
+	align-items: center;
+	justify-content: center;
+	width: 100%;
+	padding: 0 20px 20px 20px;
+}
+
+.notFoundMsg div{
+	width: 100%;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+}
+
+.notFoundMsg div img{
+	width: 40%;
+}
+
+@media screen and (min-width: 1200px) {
+	.notFoundMsg div img{
+		width: 25%;
+	}
+}
+
+/*Mensajes para indicar al usuario acciones del correo electronico*/
+
+.infoSectionWhatMail{
+	width: 100%;
+	height: 200px;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	position: absolute;
+	top: 560px;
+}
+
+.infoSectionWhatMailCard{
+	font-size: 20px;
+	padding: 10px 30px;
+}
+
+@media screen and (max-width: 700px) {
+	.infoSectionWhatMail{
+		width: 100%;
+		height: 200px;
+		display: flex;
+		justify-content: center;
+		align-items: center;
+		position: absolute;
+		top: 560px;
+	}
+	
+	.infoSectionWhatMailCard{
+		font-size: 14px;
+		padding: 10px 15px;
+	}
+	
+}
+
+.infoSectionWhatMailDos{
+	width: 100%;
+	height: 200px;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+}
+
+.infoSectionWhatMailDosCard{
+	font-size: 20px;
+	padding: 10px 30px;
+}
+
+@media screen and (max-width: 700px) {
+	.infoSectionWhatMailDos{
+		width: 100%;
+		height: 200px;
+		display: flex;
+		justify-content: center;
+		align-items: center;
+	}
+	
+	.infoSectionWhatMailDosCard{
+		font-size: 14px;
+		padding: 10px 15px;
+	}
+	
+}
+
+
+/*Mensajes de erro custom*/
+.notFoundMsg_custom{
+	display: grid;
+	grid-template-columns: 1fr;
+	grid-template-rows: auto;
+	align-items: center;
+	justify-content: center;
+	width: 100%;
+	padding: 0;
+}
+
+.notFoundMsg_custom div{
+	width: 100%;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+}
+
+.notFoundMsg_custom div img{
+	width: 100%;
+}
+
+@media screen and (min-width: 1200px) {
+	.notFoundMsg_custom div img{
+		width: 60%;
+	}
+}
+
+/*Estilos del log in*/
+
+.loginContainerGrid{
+	display: grid;
+	grid-template-columns: 1fr 1.8fr;
+	grid-template-rows: auto;
+	grid-template-areas: 
+	"area1 area2";
+
+	margin: 50px 280px 80px 280px;
+}
+
+.loginContainerImage{
+	grid-area: area1;
+	border-radius: 20px 0 0 20px;
+	background-position: center;
+	background-size: cover;
+	background-repeat: no-repeat;
+
+	display: flex;
+	justify-content: center;
+	align-items: center;
+}
+
+.loginContainerImage div{
+	width: 180px;
+	height: 180px;
+	background-position: center;
+	background-size: contain;
+	background-repeat: no-repeat;
+	border-radius: 10px;
+}
+
+.loginContainerForm{
+	grid-area: area2;
+	padding: 40px;
+	border-radius: 0 20px 20px 0;
+}
+
+@media screen and (max-width: 1200px) {
+	.loginContainerGrid{
+		display: grid;
+		grid-template-columns: 1fr 1.6fr;
+		grid-template-rows: auto;
+		grid-template-areas: 
+		"area1 area2";
+	
+		margin: 50px 100px 300px 100px;
+	}
+
+	.loginContainerImage div{
+		width: 130px;
+		height: 130px;
+	}
+}
+
+
+
+@media screen and (max-width: 700px) {
+	.loginContainerGrid{
+		display: grid;
+		grid-template-columns: 1fr !important;
+		grid-template-rows: auto;
+		grid-template-areas: none;
+	
+		margin: 20px 40px;
+	}
+
+	.loginContainerImage{
+		border-radius: 20px 20px 0 0;
+		height: 150px;
+		grid-area: unset;
+	}
+	
+	.loginContainerForm{
+		padding: 100px 30px 30px 30px;
+		border-radius: 0 0 20px 20px;
+		grid-area: unset;
+	}
+
+	.loginContainerImage div{
+		width: 150px;
+		height: 150px;
+		position: relative;
+		top: 50px;
+	}
+}
+
+/*Estilos del sign up*/
+
+.holeContainerSignUp{
+	display: grid;
+	grid-template-columns: 1fr 1fr;
+	grid-template-rows: auto;
+	grid-template-areas: 
+	"area1 area2"
+	"area3 area3";
+	gap: 30px;
+	margin: 50px;
+}
+
+.holeContainerSignUp1, .holeContainerSignUp2{
+	display: grid;
+	grid-template-columns: 1fr;
+	grid-template-rows: auto;
+	grid-template-areas: 
+	"area1Min" 
+	"area2Min";
+}
+
+.holeContainerSignUp1{
+	grid-area: area1;
+}
+
+.holeContainerSignUp2{
+	grid-area: area2;
+}
+
+.holeContainerSignUp3{
+	grid-area: area3;
+}
+
+/*Contenido de las cards*/
+.tituloFormContainer{
+	grid-area: area1Min;
+	padding: 0 20px;
+	margin: 0;
+	height: 100px;
+	border-radius: 20px 20px 0 0;
+
+	display: flex;
+	justify-content: center;
+	align-items: center;
+}
+
+.tituloFormContainer p{
+	font-size: 30px;
+	font-weight: 500;
+	position: relative;
+}
+
+.tituloFormContainerFoto{
+	height: 150px;
+}
+
+.tituloFormContainerFoto p{
+	font-size: 30px;
+	font-weight: 500;
+	position: relative;
+	top: 0px;
+}
+
+.contentFormContainer{
+	grid-area: area2Min;
+	padding: 40px;
+}
+
+.imageContainerForm{
+	position: relative;
+	top: -120px;
+}
+
+#profileImageProf, #profileImageEst{
+	width: 280px;
+	height: 280px;
+	margin-bottom: 20px;
+}
+
+.contentFormContainerFoto{
+	height: 150px;
+}
+
+.botonImagenContainerForm{
+	height: auto;
+	position: relative;
+	top: -100px;
+}
+
+@media screen and (max-width: 1000px) {
+	.holeContainerSignUp{
+		display: grid;
+		grid-template-columns: 1fr;
+		grid-template-rows: auto;
+		grid-template-areas: 
+		"area1"
+		"area2"
+		"area3";
+		gap: 30px;
+		margin: 20px;
+	}
+
+	.contentFormContainer{
+		padding: 20px;
+	}
+
+	.tituloFormContainerFoto p{
+		font-size: 30px;
+		font-weight: 500;
+		position: relative;
+		top: -20px;
+	}
+
+	.imageContainerForm{
+		position: relative;
+		top: -80px;
+	}
+
+	#profileImageProf, #profileImageEst{
+		width: 110px;
+		height: 110px;
+	}
+
+	.tituloFormContainer p{
+		font-size: 25px;
+		font-weight: 500;
+		position: relative;
+	}
+}
+
+.containerApelaciones{
+	display: grid;
+	grid-template-columns: repeat(2, 1fr);
+	grid-template-rows: auto;
+	gap: 20px;
+	padding: 10px 20px 0 20px;
+}
+
+.containerApelaciones button{
+	width: 100%;
+}
+
+.containerResolucionDeLaApelacion{
+	width: 100%;
+	display: grid;
+	grid-template-columns: 1fr;
+}
+
+.resolucionFormato{
+	width: 100%;
+	padding: 5px 20px;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	margin: 10px 20px;
+}

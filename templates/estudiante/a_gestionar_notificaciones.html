@@ -1,0 +1,105 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+    <title class="TDI">Mis notificaciones</title>
+
+    <!--Jalamos todo el contenido del encabezado-->
+    {% include "includes/encabezadoRecursos.html" %}
+    <link rel="stylesheet" href="../../static/css/notificacionesGestorEstilos.css">
+
+</head>
+
+<body class="oculto colorGrey">
+
+    <!--Jalamos todo el contenido del encabezado-->
+    {% include "includes/cargador.html" %}
+
+    <!--Menu de página de inicio-->
+    <nav class="color2 fixedNavbarMine">
+        <div class="nav-wrapper">
+            <a href="#" class="brand-logo hide-on-small-only TDI">Mis notificaciones</a>
+            <a href="/bienvenidaEstudiante" data-target="slide-out" class="sidenav-trigger"><i
+                    class="material-icons">arrow_back</i></a>
+            <p class="titleMobile colorText flow-text hide-on-med-and-up TDI">Mis notificaciones.</p>
+            <ul class="right hide-on-med-and-down">
+                <li><a href="/bienvenidaEstudiante" class="btn color3 button-rounded TDI">Volver</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <section class="containerGestorNotificacionesMain">
+        <section class="lateralMenuNotification colorGreyWhiter">
+            <div class="fixedButtonWrapNoti">
+                <h6 class="colorTextReverse"><b class="TDI">Categorias</b></h6>
+                <button id="newResolve"
+                    class="btn waves-effect waves-light bordered5 shadow-1 colorText color2 TDI">Apelaciones</button>
+                <button id="newTest"
+                    class="btn waves-effect waves-light bordered5 shadow-1 colorText color2 TDI">Cuestionarios nuevos</button>
+                <button id="newGeral"
+                    class="btn waves-effect waves-light bordered5 shadow-1 colorText color3 TDI">General</button>
+                <button id="newImportante"
+                    class="btn waves-effect waves-light bordered5 shadow-1 colorText color3 TDI">Importante</button>
+                <button id="newTodas"
+                    class="btn waves-effect waves-light bordered5 shadow-1 colorText color3 TDI">Todas</button>
+                <h6 class="colorTextReverse"><b class="TDI">Operaciones</b></h6>
+                <form action="/borrarComentariosAlumno" method="post">
+                    <input type="hidden" name="idAlumno" id="idAlumno" class="idAlumnoClass">
+                    <button type="submit" class="btn waves-effect waves-light bordered5 shadow-1 colorText color3">
+                        <span class="TDI">
+                            Limpiar bandeja
+                        </span>
+                    </button>
+                </form>
+            </div>
+        </section>
+        <section class="classificationNotiMobile">
+            <div id="2_newResolve" class="btnMobileNoti firstRoundedButtonNoti shadow-1 colorGreyWhiter waves-effect waves-light"><i
+                    class="material-icons coloredText md-20">feedback</i></div>
+            <div id="2_newTest" class="btnMobileNoti shadow-1 colorGreyWhiter waves-effect waves-light"><i
+                    class="material-icons coloredText md-20">quiz</i></div>
+            <div id="2_newGeral" class="btnMobileNoti shadow-1 colorGreyWhiter waves-effect waves-light"><i
+                    class="material-icons coloredText md-20">inbox</i></div>
+            <div id="2_newImportante" class="btnMobileNoti shadow-1 colorGreyWhiter waves-effect waves-light"><i
+                    class="material-icons coloredText md-20">campaign</i></div>
+            <div id="2_newTodas" class="btnMobileNoti shadow-1 colorGreyWhiter waves-effect waves-light"><i
+                    class="material-icons coloredText md-20">all_inbox</i></div>
+            <form action="/borrarComentariosAlumno" method="post">
+                <input type="hidden" name="idAlumno" id="idAlumno" class="idAlumnoClass">
+                <button type="submit" id="2_limpiar"
+                    class="btnMobileNoti shadow-1 lastRoundedButtonNoti colorGreyWhiter waves-effect waves-light"><i
+                        class="material-icons coloredText md-20">cleaning_services</i></button type="submit">
+            </form>
+        </section>
+        <section class="allContentNotification" id="allContentNotification">
+            <h5 class="TDI">Notificaciones</h5>
+            <section class="boxShowNotificaciones" id="boxShowNotificaciones">
+
+            </section>
+        </section>
+    </section>
+
+
+    <!--Botones para que el gestor de idiomas no falle-->
+    <span class="hiddenElement" id="seleccionarEspanol"></span>
+    <span class="hiddenElement" id="seleccionarIngles"></span>
+    <span class="hiddenElement" id="seleccionarPortugues"></span>
+    <span class="hiddenElement" id="seleccionarChino"></span>
+
+</body>
+
+<!--Jalamos todo el contenido del encabezado-->
+{% include "includes/footerRecursos.html" %}
+
+<!-------------------------------------------------------------------->
+<!--Accedemos a la data de la BD con python-->
+<input type="hidden" value="{{notificaciones}}" id="notificacionesData">
+
+<!--Link dek archivo para la gestion de las notificaciones-->
+<script src="../../static/js/gestorNotificacionesAlumnos.js"></script>
+
+<!--Traduccion-->
+<script src="../static/js/idiomas/textos.mjs" type="module"></script>
+<script src="../static/js/idiomas/gestorIdiomas.js" type="module"></script>
+
+</html>

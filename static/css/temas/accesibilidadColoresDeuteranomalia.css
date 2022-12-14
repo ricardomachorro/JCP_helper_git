@@ -1,0 +1,219 @@
+::selection { 
+    background: rgb(102, 115, 95);
+    color:rgb(234, 216, 222); 
+}
+
+.color1 {background-color: rgb(13, 13, 3);}
+.color2 {background-color: rgb(38, 47, 42);}
+.color3 {background-color: rgb(102, 115, 95);}
+.color4 {background-color: rgb(189, 177, 143);}
+.color5 {background-color: rgb(234, 209, 185);}
+
+.colorGrey {background-color: rgb(234, 216, 222);}
+.colorGreyDarker {background-color: rgb(213, 197, 202);}
+.colorGreyWhiter {background-color: rgb(213, 197, 202);}
+.colorWhite {background-color: rgb(234, 216, 222);}
+
+.coloredText {color: rgb(102, 115, 95) !important;}
+.colorText {color: rgb(234, 216, 222) !important;}
+.colorTextReverse {color: #000 !important;}
+
+.borderDecoration{
+    border-bottom: 5px rgb(102, 115, 95) solid;
+}
+
+.borderDecorationStrong{
+    border-bottom: 5px rgb(38, 47, 42) solid;
+}
+
+/*Fondos dinámicos*/
+.cardCarouselMainHead{
+    background-image: url('../../images/fondos/adaptados/deuteranomalia/adaptada\ \(5\).png');
+}
+
+.cardMain{
+    background-image: url('../../images/fondos/adaptados/deuteranomalia/adaptada\ \(2\).png');
+}
+
+.cardMainDesktopPanelHead{
+    background-image: url('../../images/fondos/adaptados/deuteranomalia/adaptada\ \(1\).png');
+}
+
+.informeCard{
+    background-image: url('../../images/fondos/adaptados/deuteranomalia/adaptada\ \(2\).png');
+}
+
+.iconSecondary{
+    background-image: url('../../images/fondos/adaptados/deuteranomalia/adaptada\ \(1\).png') ;
+}
+
+.card-bienvenida,.card-bienvenida-text{
+    background-image: url('../../images/fondos/adaptados/deuteranomalia/adaptada\ \(3\).png');
+}
+
+.fondoDinamico{
+    background-image: url('../../images/fondos/adaptados/deuteranomalia/adaptada\ \(4\).png');
+}
+
+.icon_app{
+    background-image: url('../../images/logo_app/grey_icon.png');
+}
+
+.iconBoxInfoDinamico{
+    background-image: url('../../images/brand_app/triple_deuteranomalia.png');
+}
+
+
+/*Barra de carga*/
+.progress .indeterminate {
+    background-color: rgb(38, 47, 42);
+}
+
+/*Hover de los botones*/
+
+.btn:hover,
+.btn-large:hover,
+.btn-small:hover {
+    background-color: rgb(102, 115, 95) !important;
+    color: rgb(234, 216, 222) !important;
+}
+
+/*Color de los formularios dinamico*/
+input:not([type]):focus:not([readonly]),
+input[type=text]:not(.browser-default):focus:not([readonly]),
+input[type=password]:not(.browser-default):focus:not([readonly]),
+input[type=email]:not(.browser-default):focus:not([readonly]),
+input[type=url]:not(.browser-default):focus:not([readonly]),
+input[type=time]:not(.browser-default):focus:not([readonly]),
+input[type=date]:not(.browser-default):focus:not([readonly]),
+input[type=datetime]:not(.browser-default):focus:not([readonly]),
+input[type=datetime-local]:not(.browser-default):focus:not([readonly]),
+input[type=tel]:not(.browser-default):focus:not([readonly]),
+input[type=number]:not(.browser-default):focus:not([readonly]),
+input[type=search]:not(.browser-default):focus:not([readonly]),
+textarea.materialize-textarea:focus:not([readonly]) {
+    border-bottom: 1px solid rgb(102, 115, 95);
+    -webkit-box-shadow: 0 1px 0 0 rgb(102, 115, 95);
+    box-shadow: 0 1px 0 0 rgb(102, 115, 95);
+}
+
+input:not([type]):focus:not([readonly])+label,
+input[type=text]:not(.browser-default):focus:not([readonly])+label,
+input[type=password]:not(.browser-default):focus:not([readonly])+label,
+input[type=email]:not(.browser-default):focus:not([readonly])+label,
+input[type=url]:not(.browser-default):focus:not([readonly])+label,
+input[type=time]:not(.browser-default):focus:not([readonly])+label,
+input[type=date]:not(.browser-default):focus:not([readonly])+label,
+input[type=datetime]:not(.browser-default):focus:not([readonly])+label,
+input[type=datetime-local]:not(.browser-default):focus:not([readonly])+label,
+input[type=tel]:not(.browser-default):focus:not([readonly])+label,
+input[type=number]:not(.browser-default):focus:not([readonly])+label,
+input[type=search]:not(.browser-default):focus:not([readonly])+label,
+textarea.materialize-textarea:focus:not([readonly])+label {
+    color: rgb(102, 115, 95);
+}
+
+[type="checkbox"].filled-in:checked+span:not(.lever):after {
+    border: 2px solid rgb(102, 115, 95);
+    background-color: rgb(102, 115, 95);
+}
+
+/* Date Display */
+.datepicker-date-display {
+    -webkit-box-flex: 1;
+    -webkit-flex: 1 auto;
+    -ms-flex: 1 auto;
+    flex: 1 auto;
+    background-color: rgb(102, 115, 95);
+    color: rgb(234, 216, 222);
+    padding: 20px 22px;
+    font-weight: 500;
+}
+
+.datepicker-table td.is-selected {
+    background-color: rgb(102, 115, 95);
+    color: rgb(234, 216, 222);
+}
+
+.datepicker-table td.is-today {
+    color: rgb(102, 115, 95);
+}
+
+.datepicker-cancel,
+.datepicker-clear,
+.datepicker-today,
+.datepicker-done {
+    color: rgb(102, 115, 95);
+    padding: 0 1rem;
+}
+
+/*Para los type radio*/
+[type="radio"]:checked + span:after,
+[type="radio"].with-gap:checked + span:after {
+  background-color: rgb(102, 115, 95);
+}
+
+[type="radio"]:checked + span:after,
+[type="radio"].with-gap:checked + span:before,
+[type="radio"].with-gap:checked + span:after {
+  border: 2px solid rgb(102, 115, 95);
+}
+
+/*Para el icono de prefijo*/
+.input-field .prefix.active {
+    color: rgb(102, 115, 95);
+}
+
+/*Para los textos de los dropdown*/
+.dropdown-content li > a, .dropdown-content li > span {
+    font-size: 16px;
+    font-weight: 650;
+    background-color: rgb(234, 216, 222);
+    color: rgb(102, 115, 95);
+    display: block;
+    line-height: 22px;
+    padding: 14px 16px;
+}
+
+/*Para el reloj*/
+/* Clock Digital Display */
+.timepicker-digital-display {
+    -webkit-box-flex: 1;
+    -webkit-flex: 1 auto;
+    -ms-flex: 1 auto;
+    flex: 1 auto;
+    background-color: rgb(102, 115, 95);
+    border-radius: 20px 0 0 20px;
+    padding: 10px;
+    font-weight: 300;
+}
+
+.timepicker-canvas line {
+    stroke: rgb(189, 177, 143);
+    stroke-width: 4;
+    stroke-linecap: round;
+}
+
+.timepicker-canvas-out {
+    opacity: 0.25;
+}
+
+.timepicker-canvas-bearing {
+    stroke: none;
+    fill: rgb(189, 177, 143);
+}
+
+.timepicker-canvas-bg {
+    stroke: none;
+    fill: rgb(189, 177, 143);
+}
+
+.timepicker-close {
+    color: rgb(102, 115, 95);
+}
+
+@media only screen and (max-width: 601px) {
+    .timepicker-digital-display {
+        border-radius: 20px 20px 0 0;
+    }
+}

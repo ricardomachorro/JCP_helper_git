@@ -1,0 +1,68 @@
+<!-- Meta datos -->
+<meta charset="UTF-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<link rel="icon" type="image/jpg" href="../../static/images/favicon/ico.ico" />
+
+<!--Animaciones-->
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css" />
+
+<!--Fuentes-->
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link
+    href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&family=Ubuntu:ital,wght@0,300;0,400;0,500;0,700;1,300;1,400;1,500;1,700&display=swap"
+    rel="stylesheet">
+<!-- Encabezado link-->
+<link rel="stylesheet" href="../static/css/temas/@coloresUniversales.css">
+<link rel="stylesheet" href="../static/css/sombras.css">
+<link rel="stylesheet" href="../static/css/border.css">
+<link rel="stylesheet" href="../static/css/personalizadorColor.css">
+<link rel="stylesheet" href="../static/css/cargador.css">
+<link rel="stylesheet" href="{{url_for('static', filename = 'css/navbar.css')}}">
+<link rel="stylesheet" href="{{url_for('static', filename = 'css/paginaIntentos.css')}}">
+<link rel="stylesheet" href="{{url_for('static', filename = 'css/comunidadEstilos.css')}}">
+<link rel="stylesheet" href="{{url_for('static', filename = 'css/myGroupContainer.css')}}">
+<link rel="stylesheet" href="{{url_for('static', filename = 'css/ownBadges.css')}}">
+<link rel="stylesheet" href="{{url_for('static', filename = 'css/footer.css')}}">
+<link rel="stylesheet" href="{{url_for('static', filename = 'css/cardsConfiguraciones.css')}}">
+<link rel="stylesheet" href="{{url_for('static', filename = 'css/cardsSeleccionTema.css')}}">
+<link rel="stylesheet" href="{{url_for('static', filename = 'css/politicas.css')}}">
+<link rel="stylesheet" href="{{url_for('static', filename = 'css/operacionesGestionMenuStyles.css')}}">
+<link rel="stylesheet" href="{{url_for('static', filename = 'css/styles.css')}}" type="text/css">
+<link rel="stylesheet" href="{{url_for('static', filename = 'css/resultadosEstudiantes.css')}}" type="text/css">
+<!--Mantener las card abajo de styles, para que tengan prioridad-->
+<link rel="stylesheet" href="../static/css/cardsMain.css">
+<link rel="stylesheet" href="{{url_for('static', filename = 'css/cardEstadisticas.css')}}">
+<link rel="stylesheet" href="{{url_for('static', filename = 'css/cardInformes.css')}}">
+<link rel="stylesheet" href="{{url_for('static', filename = 'css/cardSummary.css')}}">
+<link rel="stylesheet" href="../static/css/cardsSecondary.css">
+<link rel="stylesheet" href="../static/css/operacionesCreacionCuestionariosStyles.css">
+<link rel="stylesheet" href="../static/css/operacionesVerCuestionarios.css">
+<link rel="stylesheet" href="../static/css/operacionesVerResultadosCuestionario.css">
+<link rel="stylesheet" href="../static/css/graficasPlotly.css">
+<!--
+    Nota == Si haces cambios a las rutas asegurate de dejar 
+    materialize hasta abajo, para que el navegador le de prioridad
+    a los estilos del framework, porque si no podria romperse 
+    el CSS del framework.
+-->
+<link rel="stylesheet" href="../static/css/materialize.css">
+
+
+
+<!------ESTILOS CON PRIORIDAD SUPERIOR----------------------------------------->
+<!--Para los estilos del perfil de usuario
+    se requiere pasar por encima de materialize porque
+    el editor de fondo para el perfil requiere acceso al DOM-->
+<link rel="stylesheet" href="{{url_for('static', filename = 'css/perfil_usuario.css')}}">
+<!--Para los mensajes en caso de que algo ocurra en la busqueda en la bd-->
+<link rel="stylesheet" href="{{url_for('static', filename = 'css/mensajesCasos.css')}}">
+<!--Elementos para el carousel-->
+<link rel="stylesheet" href="../static/css/owl.carousel.min.css">
+<!--No borrar esta puesto para que el selector de temas funcione-->
+<link rel="stylesheet" href="" id="theme">
+
+<!--Para materialize-->
+<link href="http://fonts.cdnfonts.com/css/roboto" rel="stylesheet">
+<link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">

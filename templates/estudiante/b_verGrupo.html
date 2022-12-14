@@ -1,0 +1,166 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+    <title class="TDI">Mis grupos</title>
+
+    <!--Jalamos todo el contenido del encabezado-->
+    {% include "includes/encabezadoRecursos.html" %}
+
+</head>
+
+<body class="oculto colorGrey">
+
+    <!--Jalamos todo el contenido del encabezado-->
+    {% include "includes/cargador.html" %}
+
+
+    <!--Menu de página de inicio-->
+    <nav class="color2">
+        <div class="nav-wrapper">
+            <a href="#" class="brand-logo hide-on-small-only TDI">Mis grupos.</a>
+            <a href="bienvenidaProfesor" data-target="slide-out" class="sidenav-trigger"><i
+                    class="material-icons">arrow_back</i></a>
+            <p class="titleMobile colorText flow-text hide-on-med-and-up TDI">Mis grupos.</p>
+            <ul class="right hide-on-med-and-down">
+                <li><a href="/mis_grupos/{{idEstudiante}}" class="btn color3 button-rounded TDI">Volver</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <!--Titulos de la página-->
+    <div class="title-general shadow-2e encabezadoGrupo"
+        style="background-image: url({{groupInfo.4}}), url(../../static/images/fondos/fondo.png); background-blend-mode: hue;">
+        <h5 class="colorText hide-on-large-only hide-on-med-only">{{groupInfo.2}}</h5>
+        <h4 class="colorText hide-on-small-only">{{groupInfo.2}}</h4>
+    </div>
+
+    <!--Contenedor principal-->
+    <section class="contenedorInformacionPrincipal">
+        <section class="contenedorInformacionSecundarioUno">
+            <div class="colorGreyWhiter bordered2 shadow-2e contenedorDataGrupo">
+                <h5 class="TDI">Datos generales</h5>
+                <hr>
+                <a href="/viewTeacherProfile/{{profData.0}}">
+                    <section class="perfilDocenteViewContainerLink colorText">
+                        <div class="perfilDocenteViewContainerLink_name">
+                            <p>{{profData.1}}</p>
+                        </div>
+                        <div class="perfilDocenteViewContainerLink_image">
+                            <img src="../../static/images/docentes/{{profData.3}}">
+                        </div>
+                    </section>
+                </a>
+                <div>
+                    <h6 class="TDI colorTextReverse">Descripción de grupo:</h6>
+                    <p class="muestraCodigoGrupo colorGrey colorTextReverse bordered1" style="text-align: left;">
+                        {{groupInfo.3}}</p>
+                </div>
+                <div>
+                    <h6 class="TDI colorTextReverse">Lenguajes del grupo:</h6>
+                    <p class="muestraCodigoGrupo colorGrey colorTextReverse bordered1 truncate">{{groupInfo.6}}</p>
+                </div>
+                <div>
+                    <h6 class="TDI colorTextReverse">Temas del grupo:</h6>
+                    <p class="muestraCodigoGrupo colorGrey colorTextReverse bordered1 truncate">{{groupInfo.7}}</p>
+                </div>
+            </div>
+        </section>
+
+        <section class="contenedorInformacionSecundarioDos">
+            <div class="opcionesContainer" style="padding: 0;">
+                <ul class="collapsible bordered5 colorWhite">
+                    <li>
+                        <div class="bordered5 collapsible-header colorWhite shadow-1e colorTextReverse"
+                            style="margin-bottom: 5px;"><i class="material-icons">article</i>
+                            <span class="TDI">
+                                Cuestionarios.
+                            </span>
+                            <span id="cuestionariosContador" class="colorGrey"></span>
+                        </div>
+                        <div class="bordered5 collapsible-body">
+                            <section class="contenedorEstudiantesInfo">
+                                {%for i in range(0, datosCuestionarios|length)%}
+                                <!--Solo muestra los ids que coinciden-->
+                                {% if datosCuestionarios[i][1] == groupInfo.0%}
+                                <div class="colorTextReverse cardCuestionarioGrupoVer">
+                                    <div class="colorGrey titleCardCuestionarioGrupoVer truncate">
+                                        <h6 class="colorTextReverse">{{datosCuestionarios[i][3]}}</h6>
+                                    </div>
+                                    <div class="colorGreyDarker descCardCuestionarioGrupoVer" style="border-radius: 0;">
+                                        <p id="muestraCodigoGrupo" style="text-align: left;">
+                                            {{datosCuestionarios[i][7]}}</p>
+                                    </div>
+                                    <div class="colorGreyDarker borderDecoration bordered2Down"
+                                        style="padding: 20px 20px; width: 100%; display: flex; justify-content: center; align-items: center;">
+                                        <form action="/viewCuestionarioInfo/{{datosCuestionarios[i][0]}}" method="post">
+                                            <input type="hidden" name="idEstudiante" value="{{idEstudiante}}">
+                                            <button type="submit" class="btn waves-effect color2 bordered5"
+                                                style="width: 200px;">Enter</button>
+                                        </form>
+                                    </div>
+                                </div>
+                                {% endif %}
+                                {%endfor%}
+                            </section>
+                        </div>
+                    </li>
+                </ul>
+            </div>
+            </div>
+        </section>
+
+        <section class="contenedorInformacionSecundarioTres">
+            <div class="opcionesContainer" style="padding: 0;">
+                <ul class="collapsible bordered5 colorWhite">
+                    <li>
+                        <div class="bordered5 collapsible-header colorWhite shadow-1e colorTextReverse"
+                            style="margin-bottom: 5px;"><i class="material-icons">people</i>
+                            <span class="TDI">
+                                Alumnos.
+                            </span> <span id="alumnosContador" class="colorGrey"></span>
+                        </div>
+                        <div class="bordered5 collapsible-body">
+                            <section class="contenedorEstudiantesInfo">
+                                {%for i in range(0, datosAlumnos|length)%}
+                                <a href="/perfil_general_view/{{datosAlumnos[i][0][0]}}">
+                                    <div
+                                        class="borderDecoration colorGrey cardAlumnoSecondary bordered1 centerAlignerNoWidth">
+                                        <div class="iconContenedorUserSecondary centerAlignerNoWidth">
+                                            <img src="../../static/images/alumnos/{{datosAlumnos[i][0][3]}}"
+                                                class="userSecondary bordered5">
+                                        </div>
+                                        <div class="textContenedorUserSecondary">
+                                            <p class="truncate colorTextReverse"><b>{{datosAlumnos[i][0][2]}}</b></p>
+                                            <p class="truncate colorTextReverse">{{datosAlumnos[i][0][4]}}</p>
+                                        </div>
+                                    </div>
+                                </a>
+                                {%endfor%}
+                            </section>
+                        </div>
+                    </li>
+                </ul>
+            </div>
+            </div>
+        </section>
+
+        <!--Botones para que el gestor de idiomas no falle-->
+        <span class="hiddenElement" id="seleccionarEspanol"></span>
+        <span class="hiddenElement" id="seleccionarIngles"></span>
+        <span class="hiddenElement" id="seleccionarPortugues"></span>
+        <span class="hiddenElement" id="seleccionarChino"></span>
+
+</body>
+
+<!--Jalamos todo el contenido del encabezado-->
+{% include "includes/footerRecursos.html" %}
+
+<script src="../../static/js/operacionesVerGrupo.js"></script>
+<script src="../../static/js/generadorCodigosCuestionarioHacer.js"></script>
+
+<script src="../static/js/idiomas/textExtractor.js"></script>
+<script src="../static/js/idiomas/textos.mjs" type="module"></script>
+<script src="../static/js/idiomas/gestorIdiomas.js" type="module"></script>
+
+</html>

@@ -1,0 +1,144 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+    <title class="TDI">Datos cuestionario</title>
+
+    <!--Jalamos todo el contenido del encabezado-->
+    {% include "includes/encabezadoRecursos.html" %}
+    <link rel="stylesheet" href="../../static/css/infoCuestionarioAlumno.css">
+
+</head>
+
+<body class="oculto colorGrey">
+
+    <!--Jalamos todo el contenido del encabezado-->
+    {% include "includes/cargador.html" %}
+
+
+    <!--Menu de página de inicio-->
+    <nav class="color2 fixedNavbarMine navbarCuestionarioReady">
+        <div class="nav-wrapper">
+            <a href="#" class="brand-logo hide-on-small-only TDI">Datos cuestionario.</a>
+            <a href="bienvenidaProfesor" data-target="slide-out" class="sidenav-trigger"><i
+                    class="material-icons">arrow_back</i></a>
+            <p class="titleMobile colorText flow-text hide-on-med-and-up TDI">Datos cuestionario.</p>
+            <ul class="right hide-on-med-and-down">
+                <form action="/viewGroupEstudiante/{{idGrupo}}" method="post">
+                    <input type="hidden" name="idEstudiante" value="{{idEstudiante}}">
+                    <li><button type="submit" class="btn color3 button-rounded TDI">Volver</button></li>
+                </form>
+            </ul>
+        </div>
+    </nav>
+    <!--Titulos de la página-->
+    <div class="title-general color1 fixedTitleOperationMain titleCuestionarioReady shadow-2e"
+        id="cajaTituloBuscadorId">
+        <h6 class="colorText hide-on-large-only hide-on-med-only" id="cajaTituloBuscadorContenidoId">
+            {{datosCuestionarios[3]}}</h6>
+        <h5 class="colorText hide-on-small-only" id="cajaTituloBuscadorContenidoLargeId">{{datosCuestionarios[3]}}</h5>
+    </div>
+
+    <!--Data docente-->
+    <section class="docenteContainerCuestionario colorGreyWhiter">
+        <div class="fotoTeacherCuestionario">
+            <a href="/viewTeacherProfile/{{datosDocente[0]}}">
+                <div class="shadow-1e"
+                    style="background-image: url('../../static/images/docentes/{{datosDocente[3]}}');"></div>
+            </a>
+        </div>
+        <div class="nameTeacherCuestionario bordered2 shadow-1e">
+            <div class="nombreTeacherCuestionario colorText color2"><b class="TDI">Docente:</b>&nbsp;{{datosDocente[1]}}</div>
+            <div class="apodoTeacherCuestionario coloredText colorWhite"><span class="TDI"> Alias: </span> {{datosDocente[2]}}</div>
+            <div class="correoTeacherCuestionario coloredText colorWhite"><span class="TDI"> Contacto: </span>  {{datosDocente[4]}}</div>
+        </div>
+    </section>
+
+    <!--Data cuestionario-->
+    <section class="containerTitleCuestionarioReady">
+        <div class="title-general">
+            <h5 class="hide-on-large-only TDI">Datos de cuestionario</h5>
+            <h4 class="hide-on-med-and-down TDI">Datos de cuestionario</h4>
+        </div>
+    </section>
+    <section class="docenteInfoCuestionario">
+        <div class="bordered1 shadow-1 docenteInfoCuestionarioSecond">
+            <h6 class="colorGreyWhiter colorTextReverse TDI">Grupo</h6>
+            <p>{{datosGrupo[2]}}</p>
+        </div>
+        <div class="bordered1 shadow-1 docenteInfoCuestionarioSecond">
+            <h6 class="colorGreyWhiter colorTextReverse TDI">Lenguaje</h6>
+            <p>{{datosCuestionarios[8]}}</p>
+        </div>
+        <div class="bordered1 shadow-1 docenteInfoCuestionarioSecond">
+            <h6 class="colorGreyWhiter colorTextReverse TDI">Temas</h6>
+            <p>{{datosCuestionarios[6]}}</p>
+        </div>
+        <div class="bordered1 shadow-1 docenteInfoCuestionarioSecond">
+            <h6 class="colorGreyWhiter colorTextReverse TDI">Tipo</h6>
+            <p>{{datosCuestionarios[7]}}</p>
+        </div>
+        <div class="bordered1 shadow-1 docenteInfoCuestionarioSecond">
+            <h6 class="colorGreyWhiter colorTextReverse TDI">Tiempo límite</h6>
+            <p>{{datosCuestionarios[11]}}</p>
+        </div>
+        <div class="bordered1 shadow-1 docenteInfoCuestionarioSecond">
+            <h6 class="colorGreyWhiter colorTextReverse TDI">Fecha límite</h6>
+            <p>{{datosCuestionarios[12]}} {{datosCuestionarios[13]}}</p>
+        </div>
+        <div class="bordered1 shadow-1 docenteInfoCuestionarioSecond">
+            <h6 class="colorGreyWhiter colorTextReverse TDI">Número de intentos máximo</h6>
+            <p>{{datosCuestionarios[15]}}</p>
+        </div>
+    </section>
+
+    <!--Data cuestionario-->
+    <section class="buttonContainerReadyCuestionario">
+        <a href="#modal{{datosCuestionarios[0]}}"
+            class="modal-trigger waves-effect waves-light btn-large color2 bordered5"><i
+                class="material-icons left">done</i><span class="TDI">Comenzar</span></a>
+    </section>
+
+    <!--Boton para dar inicio al cuestionario en moviles-->
+    <!--Boton para ir hacia arriba-->
+    <div class="fixed-action-btn hide-on-med-and-up">
+        <a href="#modal{{datosCuestionarios[0]}}" class="modal-trigger btn-floating btn-large color4">
+            <i class="large material-icons">done</i>
+        </a>
+    </div>
+
+    <!--Pop up para entrar a resolver cuestionario-->
+    <div id="modal{{datosCuestionarios[0]}}" class="modal bordered2 colorGrey">
+        <div class="modal-content">
+            <h4 class="TDI">¿Desea responder el cuestionario?</h4>
+            <p class="TDI">Se recomienda que este preparado, ya que el cuestionario no se puede pausar.
+            </p>
+            <hr>
+            <form action="/answerCuestionarioAlumno/{{datosCuestionarios[0]}}" method="post">
+                <input type="hidden" id="idCuestionarioHecho" name="idCuestionarioHecho" value="">
+                <input type="hidden" name="idEstudiante" value="{{idEstudiante}}">
+                <input type="hidden" name="caducidadCuestionario"
+                    value="{{datosCuestionarios[12]}} {{datosCuestionarios[13]}}">
+                <button type="submit" class="waves-effect waves-light btn infoColorButton shadow-2e button-rounded TDI"
+                    style="width: 100%;">Comenzar</button>
+            </form>
+        </div>
+    </div>
+
+<!--Botones para que el gestor de idiomas no falle-->
+<span class="hiddenElement" id="seleccionarEspanol"></span>
+<span class="hiddenElement" id="seleccionarIngles"></span>
+<span class="hiddenElement" id="seleccionarPortugues"></span>
+<span class="hiddenElement" id="seleccionarChino"></span>
+
+</body>
+
+<!--Jalamos todo el contenido del encabezado-->
+{% include "includes/footerRecursos.html" %}
+
+<script src="../../static/js/generadorCodigosCuestionarioHacer.js"></script>
+
+<script src="../static/js/idiomas/textos.mjs" type="module"></script>
+<script src="../static/js/idiomas/gestorIdiomas.js" type="module"></script>
+
+</html>

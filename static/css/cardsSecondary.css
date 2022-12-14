@@ -1,0 +1,117 @@
+/*Tarjetas para la seccion de grupos*/
+
+.cardSecondary {
+	margin-bottom: 0px;
+	margin-top: 40px;
+}
+
+.iconSecondary {
+	height: 220px;
+	border-radius: 20px 20px 0 0;
+
+	/*En la hoja de estilos*/
+	background-position: center;
+	background-repeat: no-repeat;
+	background-size: cover;
+}
+
+.iconSecondary>p>i {
+	font-size: 65px !important;
+	color: #fff;
+}
+
+.textSecondary {
+	height: 120px;
+	font-size: 20px;
+	padding: 0 30px 0 30px;
+	width: 200px !important;
+	color: black;
+	margin-bottom: 10px;
+}
+
+/*Card secondary alumno*/
+
+.cardAlumnoSecondary {
+	padding: 8px;
+	margin: 0px 15px 5px 0px;
+
+	width: 100%;
+	height: 80px !important;
+}
+
+.userSecondary {
+	width: 40px;
+	height: 40px;
+}
+
+.iconContenedorUserSecondary {
+	padding: 10px;
+	width: 15%;
+}
+
+.iconContenedorUserSecondary img {
+	border-radius: 500px;
+	border: 3px solid #fff;
+}
+
+.textContenedorUserSecondary {
+	padding: 0 10px 0 15px;
+	width: 85%;
+}
+
+.textContenedorUserSecondary p {
+	margin: 0;
+}
+
+/*Modelos para la tableta*/
+.cardSecondaryTablet {
+	margin-right: 5px;
+	margin-left: 5px;
+}
+
+
+/*Adaptacion de las card de bienvenida del escritorio para
+la seccion de los grupos*/
+
+.cardMainDesktopPanelLeftEDITED {
+	width: 100% !important;
+	border-radius: 0 !important;
+}
+
+.cardMainDesktopPanelLeftEDITED>p>i {
+	font-size: 80px !important;
+	margin-top: 30px !important;
+}
+
+.cardMainDesktopPanelRightEDITED {
+	border-radius: 0 0 20px 20px !important;
+	width: 100% !important;
+}
+
+.cardMainDesktopPanelEDITED {
+	width: 300px !important;
+}
+
+/*
+** 
+*/
+
+@media only screen and (min-width: 1200px) {
+	.cardMainDesktopPanelEDITED {
+		width: 350px !important;
+	}
+
+	.cardMainDesktopPanelLeftEDITED>p>i {
+		font-size: 65px;
+	}
+}
+
+@media only screen and (min-width: 1500px) {
+	.cardMainDesktopPanelEDITED {
+		width: 400px !important;
+	}
+
+	.cardMainDesktopPanelLeftEDITED>p>i {
+		font-size: 70px;
+	}
+}

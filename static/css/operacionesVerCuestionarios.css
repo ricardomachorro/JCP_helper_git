@@ -1,0 +1,650 @@
+/*VER CUESTIONARIO
+* Aqui esta todo lo que tiene que ver con la preview de los cuestionarios
+* SOLAMENTE LA PREVIEW EN DONDE NO SE CONTESTAN.
+*/
+
+/*Titulo de las preguntas sticky*/
+
+.tituloPregunta{
+    transition: all .3s ease-out;
+}
+
+@media screen and (max-width: 1400px) {
+    .tituloPregunta{
+        position: sticky;
+        border-radius: 10px;
+        z-index: 100;
+        width: 100%;
+        top: 10px;
+        font-weight: 300;
+
+        transition: all .3s ease-out;
+    }
+}
+
+@media screen and (max-width: 600px) {
+    .tituloPregunta{
+        font-size: 16px;
+
+        transition: all .3s ease-out;
+    }
+}
+
+.paddingTituloAdicional{
+    padding-top: 25px;
+    padding: 20px;
+}
+
+
+/*Contenedor para la preview de los cuestionarios*/
+.contenedorPreviewCuestionario{
+    width: 100%;
+    height: auto;
+    display: grid;
+    grid-template-columns: 1.2fr 2fr;
+    grid-template-rows: auto;
+    grid-template-areas: 
+        "areaPanel areaCuestionario"
+    ;
+    gap: 30px;
+    padding: 30px;
+    box-sizing: border-box;
+}
+
+.contenedorPreviewUno{
+    grid-area: areaPanel;
+}
+
+.contenedorPreviewDos{
+    grid-area: areaCuestionario;
+}
+
+@media screen and (max-width: 1000px) {
+    .contenedorPreviewCuestionario{
+        width: 100%;
+        height: auto;
+        display: grid;
+        grid-template-columns: 1fr;
+        grid-template-rows: auto;
+        grid-template-areas: 
+            "area1"
+            "area2"
+        ;
+        gap: 30px;
+        padding: 30px;
+        box-sizing: border-box;
+    }
+    
+    .contenedorPreviewUno{
+        grid-area: area1;
+    }
+    
+    .contenedorPreviewDos{
+        grid-area: area2;
+    }
+}
+
+@media screen and (max-width: 600px) {
+    .contenedorPreviewCuestionario{
+        gap: 15px;
+        padding: 15px;
+    }
+}
+
+.contenedorPreguntasPreview, 
+.contenedorPreguntasPreviewArrastrar, 
+.contenedorPreguntasPreviewArrastrar2, 
+.contenedorPreguntasPreview2,
+.contenedorPreguntasPreview3{
+    display: grid;
+    grid-template-columns: 1fr;
+    grid-template-rows: auto;
+    gap: 20px;
+    margin: 30px 200px;
+}
+
+
+@media screen and (max-width: 1550px) {
+    .contenedorPreguntasPreview, 
+    .contenedorPreguntasPreviewArrastrar, 
+    .contenedorPreguntasPreviewArrastrar2, 
+    .contenedorPreguntasPreview2,
+    .contenedorPreguntasPreview3{
+        grid-template-columns: 1fr;
+        grid-template-rows: auto;
+        gap: 10px;
+        margin: 30px 120px;
+    }
+}
+
+@media screen and (max-width: 1100px) {
+    .contenedorPreguntasPreview, 
+    .contenedorPreguntasPreviewArrastrar, 
+    .contenedorPreguntasPreviewArrastrar2, 
+    .contenedorPreguntasPreview2,
+    .contenedorPreguntasPreview3{
+        grid-template-columns: 1fr;
+        grid-template-rows: auto;
+        gap: 10px;
+        margin: 30px 70px;
+    }
+}
+
+@media screen and (max-width: 900px) {
+    .contenedorPreguntasPreview, 
+    .contenedorPreguntasPreviewArrastrar, 
+    .contenedorPreguntasPreviewArrastrar2, 
+    .contenedorPreguntasPreview2,
+    .contenedorPreguntasPreview3{
+        margin: 20px 40px;
+    }
+}
+
+@media screen and (max-width: 600px) {
+    .contenedorPreguntasPreview, 
+    .contenedorPreguntasPreviewArrastrar, 
+    .contenedorPreguntasPreviewArrastrar2, 
+    .contenedorPreguntasPreview2,
+    .contenedorPreguntasPreview3{
+        margin: 10px 0;
+    }
+}
+
+.preguntaContainerIndividualPreview{
+    padding: 20px;
+}
+
+/*Texto de la pregunta*/
+.preguntaBox{
+    text-align: justify;
+    padding: 10px 20px;
+    height: auto;
+    box-sizing: border-box;
+}
+
+.ponderacionBox{
+    text-align: justify;
+    padding: 10px 20px;
+    margin-top: 5px;
+    margin-bottom: 5px;
+    box-sizing: border-box;
+}
+
+.imagenBox{
+    display: flex;
+    justify-content: left;
+    align-items: left;
+    padding: 2px 20px 15px 20px;
+    flex-direction: column;
+    width: 100%;
+    height: auto;
+    margin: 10px 0;
+    box-sizing: border-box;
+}
+
+.imagenBox img{
+    width: 100%;
+    height: 200px;
+    box-sizing: border-box;
+}
+
+.contendorRecursoOnlineBox{
+    width: 100%;
+    display: flex;
+    justify-content: left;
+    align-items: left;
+    flex-direction: column;
+}
+
+.btnPreguntaStyleFormat{
+    margin: 10px 0;
+    width: 100%;
+}
+
+.codeContainerBox{
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+/*Opcion multiple OPT1*/
+
+.opcionesContainerStyleViewCuestionario{
+    display: grid;
+    grid-template-columns: 1fr 2.5fr;
+    grid-template-rows: auto;
+    gap: 10px;
+    margin: 20px 0;
+
+    justify-content: center;
+    align-items: center;
+    justify-items: center;
+}
+
+.letterStyleViewCuestionario{
+    width: 100%;
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-weight: 700;
+    font-size: 18px;
+}
+
+.opcionStyleViewCuestionario{
+    width: 100%;
+    padding: 10px 20px;
+    font-weight: 600;
+}
+
+/*ARRASTRAS OPT2*/
+.opcionesContainerStyleViewCuestionarioArrastrar{
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    grid-template-rows: auto;
+    gap: 10px;
+    margin: 20px 0;
+
+    justify-content: center;
+    align-items: center;
+    justify-items: center;
+}
+
+.arrastrarElemento{
+    padding: 10px 20px;
+    width: 100%;
+    border-radius: 10px;
+    font-weight: 600;
+}
+
+.arrastrarContenedorOpcionView{
+    width: 100%;
+    padding: 10px 20px;
+    font-weight: 600;
+    font-size: 16px;
+    text-align: justify;
+}
+
+/*OPT 5 FALSO Y VERDADERO*/
+
+.opcionesContainerStyleViewCuestionarioTrueFalse{
+    display: grid;
+    grid-template-columns: 1fr;
+    grid-template-rows: auto;
+    gap: 10px;
+    margin: 20px 0;
+
+    justify-content: center;
+    align-items: center;
+    justify-items: center;
+}
+
+.preguntaBoxFalseTrue{
+    text-align: center;
+    width: 100%;
+    text-transform: uppercase;
+    padding: 10px 20px;
+    font-size: 25px;
+    box-sizing: border-box;
+}
+
+/*
+* MENU LATERAL IZQUIERDO CON DATOS ADICIONALES DEL CUESTIONARIO.
+*/
+
+.contenedorOperacionesLive{
+    position: fixed;
+    width: 500px;
+    padding: 25px;
+    box-sizing: border-box;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+}
+
+@media screen and (max-width: 1300px) {
+    .contenedorOperacionesLive{
+        width: 450px;
+    }
+}
+
+@media screen and (max-width: 1200px) {
+    .contenedorOperacionesLive{
+        width: 400px;
+    }
+}
+
+@media screen and (max-width: 1100px) {
+    .contenedorOperacionesLive{
+        width: 350px;
+    }
+}
+
+.contenedorOperacionesLiveMobile{
+    width: 100%;
+    padding: 0px 25px 15px 25px;
+    box-sizing: border-box;
+    position: static;
+    display: grid;
+    grid-template-columns: 1fr;
+    grid-template-rows: auto;
+}
+
+.datosCuestionarioLive{
+    width: 100%;
+    height: auto;
+}
+
+
+.datosCuestionarioLive .contenedorContadoresGrid{
+    display: grid;
+    grid-template-columns: 1fr;
+    grid-template-rows: auto;
+}
+
+.datosCuestionarioLive div div{
+    height: 40px;
+    font-weight: 700;
+    display: flex;
+    justify-content: left;
+    align-items: center;
+    margin: 3px;
+    padding: 0 20px;
+}
+
+.datosCuestionarioLive div span{
+    margin-left: 10px;
+    font-weight: 800;
+    font-size: 18px;
+}
+
+@media screen and (max-width: 1000px) {
+    .datosCuestionarioLive .contenedorContadoresGrid{
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        grid-template-rows: auto;
+    }
+}
+
+@media screen and (max-width: 600px) {
+    .datosCuestionarioLive .contenedorContadoresGrid{
+        display: grid;
+        grid-template-columns: 1fr;
+        grid-template-rows: auto;
+    }
+
+    .datosCuestionarioLive div div{
+        height: 30px;
+        font-size: 14;
+        font-weight: 700;
+        display: flex;
+        justify-content: left;
+        align-items: center;
+        margin: 2.5px;
+        padding: 0 20px;
+    }
+
+    .datosCuestionarioLive div span{
+        margin-left: 10px;
+        font-weight: 800;
+        font-size: 15px;
+    }
+}
+
+
+.accessCuestionarioLive{
+    width: 100%;
+    margin-top: 20px;
+}
+
+
+/*Preview del cuestionario como alumno*/
+
+.outputEsperado{
+    font-weight: 500;
+}
+
+.generalInfoPreviewAlumno{
+    padding: 10px 25px;
+}
+
+.generalInfoPreviewAlumno p{
+    font-size: 16px;
+    font-weight: 500;
+    text-align: justify;
+}
+
+@media screen and (max-width: 1400px) {
+    .generalInfoPreviewAlumno{
+        padding: 10px 25px;
+        margin-bottom: 20px;
+    }
+
+    .generalInfoPreviewAlumno p{
+        font-size: 14px;
+        font-weight: 500;
+        text-align: justify;
+    }
+}
+
+.generalInfoPreviewAlumno p i{
+    top: 5px;
+    position: relative;
+}
+
+.maxconceptos div, .maxdefiniciones div{
+    margin: 5px 0px;
+}
+
+.maxdefiniciones{
+    padding: 25px 25px;
+}
+
+@media screen and (max-width: 600px) {
+    .maxdefiniciones{
+        padding: 15px 10px;
+    }
+}
+
+/*Preview para los botones de true y false*/
+.contendorBotonesTrueFalse{
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    grid-template-rows: auto;
+    margin: 10px 0;
+}
+
+.contendorBotonesTrueFalse button{
+    margin: 0;
+    font-size: 20px;
+    font-weight: 700;
+}
+
+.trueFalsebtn1{
+    border-radius: 10px 0 0 10px !important;
+}
+
+.trueFalsebtn2{
+    border-radius: 0 10px 10px 0 !important;
+}
+
+/*Cuadricula de preguntas para ver cuales ya han sido contestadas*/
+.containerPreguntasCuadricula{
+    display: grid;
+    grid-template-columns: repeat(10,1fr);
+    grid-template-rows: auto;
+    gap: 5px;
+    padding: 10px;
+    border-radius: 10px;
+}
+
+@media screen and (max-width: 1300px) {
+    .containerPreguntasCuadricula{
+        grid-template-columns: repeat(6,1fr);
+    }    
+}
+
+.containerPreguntasCuadricula div{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: justify;
+    font-size: 16px;
+    font-weight: 600;
+    padding: 10px;
+    border-radius: 5px;
+}
+
+/*Barra de carga*/
+.contenedorBarra{
+    padding: 0 !important;
+    display: flex;
+    justify-content: left;
+    align-items: center;
+    height: 40px !important;
+
+}
+
+.cargaBarra{
+    width: 0%;
+    height: 30px !important;
+    margin: 0;
+    padding: 0;
+}
+
+/*Se agregan los estilos para las cards de revisar los cuestionarios*/
+.containerRevisionCuestionariosMain{
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    grid-template-rows: auto;
+    gap: 20px;
+    padding: 20px 40px;
+}
+
+@media screen and (max-width: 1000px) {
+    .containerRevisionCuestionariosMain{
+        display: grid;
+        grid-template-columns: repeat(2, 1fr);
+        grid-template-rows: auto;
+        gap: 20px;
+        padding: 0 40px;
+    }  
+}
+
+@media screen and (max-width: 600px) {
+    .containerRevisionCuestionariosMain{
+        display: grid;
+        grid-template-columns: repeat(1, 1fr);
+        grid-template-rows: auto;
+        gap: 20px;
+        padding: 0 30px;
+    }  
+}
+
+@media screen and (max-width: 500px) {
+    .containerRevisionCuestionariosMain{
+        display: grid;
+        grid-template-columns: repeat(1, 1fr);
+        grid-template-rows: auto;
+        gap: 15px;
+        padding: 0 15px;
+    }  
+}
+
+.cuestionarioRevisionContainer{
+    display: grid;
+    grid-template-columns: 1fr;
+    grid-template-rows: auto;
+}
+
+.titleRevisionCuestionario{
+    padding: 10px 20px;
+    font-weight: 600;
+    font-size: 18px;
+}
+
+.dataRevisionCuestionario{
+    padding: 5px 10px;
+}
+
+.dataRevisionCuestionario p{
+    padding: 5px 10px;
+}
+
+.controlsRevisionCuestionarios{
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    grid-template-rows: auto;
+
+    padding: 5px 20px;
+}
+
+.controlsRevisionCuestionarios a{
+    margin: 5px;
+}
+.controlsRevisionCuestionarios form{
+    margin: 5px;
+}
+
+.controlsRevisionCuestionarios form button{
+    width: 100%;
+}
+
+/*Preview de los datos del alumno*/
+.infoUserContainerMainRevision{
+    display: grid;
+    grid-template-columns: 1fr;
+    grid-template-rows: auto;
+}
+
+.infoUserContainerSecodnaryRevision{
+    display: grid;
+    grid-template-columns: 100px 1fr 1fr;
+    grid-template-rows: repeat(2, 45px);
+    grid-template-areas: 
+    "area1 area2 area2"
+    "area1 area4 area4";
+    gap: 10px;
+    margin-bottom: 5px;
+}
+
+.a1Revision{
+    grid-area: area1;
+}
+
+.a1Revision img{
+    width: 100px;
+    height: 100px;
+    border-radius: 10px;
+}
+
+.a2Revision{
+    grid-area: area2;
+    height: 100%;
+    width: 100%;
+}
+
+.a4Revision{
+    grid-area: area4;
+    height: 100%;
+    width: 100%;
+}
+
+.a2Revision p, .a4Revision p{
+    height: 100%;
+    margin: 0;
+    padding: 10px;
+    font-weight: 600;
+    
+    display: flex;
+    justify-content: left;
+    align-items: center;
+}
+
+.revisionDataExtraAlumno{
+    padding: 10px 10px;
+    margin: 5px 0;
+    font-weight: 600;
+}

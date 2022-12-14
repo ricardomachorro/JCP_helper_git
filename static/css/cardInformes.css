@@ -1,0 +1,38 @@
+/*Tarjetas grandes para los informes*/
+
+.informeCard{
+    /*En la hoja de estilos*/
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-attachment: initial;
+
+    width: 60%;
+    height: 100px;
+    padding: 20px;
+}
+
+.informeCardMargin{
+    margin: 5px 5px 15px 5px;
+}
+
+.informeCardIcon{
+    padding: 10px;
+}
+
+.informeCardIcon > i{
+    font-size: 35px;
+    font-style: normal;
+}
+
+
+.informeCardText{
+    padding: 10px;
+    font-size: 15px;
+}
+
+/*Tarjetas pequeñas para los informes*/
+
+.informeCardSmaller{
+    height: 65px !important;
+}

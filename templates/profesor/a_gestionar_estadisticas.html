@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html lang="en" id="cuerpo">
+
+<head>
+    <!--Jalamos todo el contenido del encabezado-->
+    {% include "includes/encabezadoRecursos.html" %}
+    <link rel="stylesheet" href="../../static/css/graficasAnalisisAprobacion.css">
+    <link rel="stylesheet" href="../../static/css/comentariosRetroalimentacion.css">
+
+    <title class="TDI">Gestionar estadísticas</title>
+</head>
+
+<body class="oculto colorGrey">
+    <!--Jalamos todo el contenido del encabezado-->
+    {% include "includes/cargador.html" %}
+
+    <!--Menu de página de inicio-->
+    <nav class="color2 fixedNavbarMine">
+        <div class="nav-wrapper">
+            <a href="#" class="brand-logo hide-on-small-only TDI">Estadísticas.</a>
+            <a href="/bienvenidaProfesor" data-target="slide-out" class="sidenav-trigger"><i
+                    class="material-icons">arrow_back</i></a>
+            <p class="titleMobile colorText flow-text hide-on-med-and-up TDI">Estadísticas.</p>
+            <ul class="right hide-on-med-and-down">
+                <li><a href="/bienvenidaProfesor" class="btn color3 button-rounded TDI">Volver</a></li>
+            </ul>
+        </div>
+        <!--Sección para elegir el tipo de stat-->
+        <ul class="tabs tabs-fixed-width tab-demo z-depth-1 color2">
+            <li class="tab"><a href="#grupos" class="active colorText TDI">Grupos</a></li>
+            <li class="tab"><a href="#cuestionarios" class="colorText TDI">Cuestionarios</a></li>
+            <li class="tab"><a href="#alumnos" class="colorText TDI">Alumnos</a></li>
+        </ul>
+    </nav>
+    <br><br><br><br><br><br>
+
+    <!--Estos datos en la página son persistentes y muestran información en general-->
+
+    <!--Datos generales para tabletas y escritorio-->
+    {% include "includes/estadisticasDocente/1_datos_generales_med_large.html" %}
+
+    <!--Datos generales para moviles-->
+    {% include "includes/estadisticasDocente/1_datos_generales_small.html" %}
+
+    <!--
+        ----
+            Aqui empiezan los contenedores de gráficas
+        ----
+    -->
+    <div id="grupos" class="col s12">
+        <!--Graficas de la seccion.-->
+        {% include "includes/estadisticasDocente/2_datos_graficas_grupos.html" %}
+    </div>
+    <div id="cuestionarios" class="col s12">
+        <!--Graficas de la seccion.-->
+        {% include "includes/estadisticasDocente/2_datos_graficas_cuestionarios.html" %}
+    </div>
+    <div id="alumnos" class="col s12">
+        <!--Listado de los alumnos por grupo.-->
+        {% include "includes/estadisticasDocente/4_alumnos_por_grupo.html" %}
+
+        <!--Listado de los alumnos por grupo.-->
+        {% include "includes/estadisticasDocente/4_alumnos_retroalimentacion.html" %}
+    </div>
+
+<!--Botones para que el gestor de idiomas no falle-->
+<span class="hiddenElement" id="seleccionarEspanol"></span>
+<span class="hiddenElement" id="seleccionarIngles"></span>
+<span class="hiddenElement" id="seleccionarPortugues"></span>
+<span class="hiddenElement" id="seleccionarChino"></span>
+
+</body>
+
+<!--Jalamos todo el contenido del encabezado-->
+{% include "includes/footerRecursos.html" %}
+
+
+<!--Accedemos a la data de la BD con python-->
+<input type="hidden" value="{{datosGrupo}}" id="datosDeLosGrupos">
+<input type="hidden" value="{{idGrupos}}" id="idGrupos">
+<input type="hidden" value="{{datosGlobalesAlumnos}}" id="datosGlobalesAlumnosDentroGrupo">
+<input type="hidden" value="{{datosCuestionariosProfe}}" id="datosCuestionariosGeneralesCuestionarios">
+<input type="hidden" value="{{datosCuestionariosTerminados}}" id="cuestionariosTerminados">
+<input type="hidden" value="{{datosComentariosRetro}}" id="datosComentariosRetro">
+<input type="hidden" value="{{datosAlumnosRetroalimentacion}}" id="datosAlumnosRetroalimentacion">
+<input type="hidden" value="{{datosGruposConRetroalimentacion}}" id="datosGruposConRetroalimentacion">
+
+
+
+<!--Tenemos nuestro script para limpiar los datos obtenidos-->
+<script src="../../../static/js/graficas/obtencionData.js"></script>
+<script src="../../../static/js/graficas/estilosDinamicos.js"></script>
+<!--Tenemos nuestros script para las estadísticas de los grupos-->
+<script src="../../../static/js/graficas/graficasGrupoPromedio.js"></script>
+<script src="../../../static/js/graficas/graficasGrupoIndiceAprobacion.js"></script>
+<script src="../../../static/js/graficas/graficasGrupoIndividual.js"></script>
+<!--Tenemos nuestros script para las estadísticas de los cuestionarios-->
+<script src="../../../static/js/graficas/graficasCuestionarioPromedio.js"></script>
+<script src="../../../static/js/graficas/graficasCuestionarioIndiceAprobacion.js"></script>
+<script src="../../../static/js/graficas/graficasCuestionarioIndividual.js"></script>
+<!--Comentarios de retroalimentacion-->
+<script src="../../../static/js/graficas/comentariosRetroalimentacion.js"></script>
+<!--Estan algunas de las operaciones en frontend-->
+<script src="../../static/js/operacionesGraficas.js"></script>
+
+<!--Elementos de reportes-->
+<script src="../../../static/js/reportes/reportesGeneral.js"></script>
+
+<!--Traduccion-->
+<script>
+    let casePageVariable = "First_case_page";
+</script>
+<script src="../static/js/idiomas/textos.mjs" type="module"></script>
+<script src="../static/js/idiomas/gestorIdiomas.js" type="module"></script>
+
+</html>

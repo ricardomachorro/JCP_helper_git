@@ -1,0 +1,81 @@
+/*Colores positivos*/
+.goodColor{
+    background-color: rgb(123, 196, 145) !important;
+    color: rgb(20, 66, 34) !important;
+}
+
+.goodColorText{
+    color: rgb(27, 87, 45) !important;
+}
+
+.goodColorButton{
+    width: 20%;
+    font-weight: 700;
+    background-color: rgb(141, 223, 166) !important;
+    color: rgb(20, 66, 34) !important;
+}
+
+
+/*Colores negativos*/
+.badColor{
+    background-color: rgb(255, 187, 187) !important;
+    color: rgb(71, 20, 20) !important;
+}
+
+.badColorText{
+    color: rgb(92, 26, 26) !important;
+}
+
+.badColorButton{
+    width: 20%;
+    font-weight: 700;
+    background-color: rgb(223, 141, 141) !important;
+    color: rgb(71, 20, 20) !important;
+}
+
+/*Colores soso*/
+.sosoColor{
+    background-color: rgb(255, 228, 187) !important;
+    color: rgb(70, 54, 22) !important;
+}
+
+.sosoColorButton{
+    width: 20%;
+    font-weight: 700;
+    background-color: rgb(223, 208, 141) !important;
+    color: rgb(70, 54, 22) !important;
+}
+
+
+/*Colores info*/
+.infoColor{
+    background-color: rgb(187, 208, 255) !important;
+    color: rgb(22, 41, 70) !important;
+}
+
+.infoColorDarker{
+    background-color: rgb(150, 183, 255) !important;
+    color: rgb(22, 41, 70) !important;
+}
+
+.infoColorButton{
+    width: 20%;
+    font-weight: 700;
+    background-color: rgb(141, 160, 223) !important;
+    color: rgb(22, 41, 70) !important;
+}
+
+input:-webkit-autofill,
+input:-webkit-autofill:hover, 
+input:-webkit-autofill:focus,
+textarea:-webkit-autofill,
+textarea:-webkit-autofill:hover,
+textarea:-webkit-autofill:focus,
+select:-webkit-autofill,
+select:-webkit-autofill:hover,
+select:-webkit-autofill:focus {
+  border: 1px solid grey;
+  -webkit-text-fill-color: grey;
+  -webkit-box-shadow: 0 0 0px 1000px #000 inset;
+  transition: background-color 5000s ease-in-out 0s;
+}

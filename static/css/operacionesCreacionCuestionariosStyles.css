@@ -1,0 +1,634 @@
+.containerCreacionCuestionarios{
+    display: grid;
+    grid-template-columns: 1.4fr 2fr;
+    grid-template-rows: repeat(2, auto);
+    grid-template-areas: 
+    "area3 area3"
+    "area1 area2"
+    ;
+}
+
+.containerCreacionCuestionariosSon1{
+    grid-area: area1;
+    padding: 0px 0px 0px 40px;
+}
+
+.containerCreacionCuestionariosSon2{
+    grid-area: area2;
+    padding: 55px 40px 0 0;
+}
+
+.containerCreacionCuestionariosSon3{
+    grid-area: area3;
+    display: grid;
+    grid-template-columns: 1fr;
+    grid-template-rows: repeat(2, auto);
+    padding: 30px 10px;
+    margin-top: 70px;
+}
+
+.containerCreacionCuestionariosSon3Final{
+    width: 100%;
+    padding: 30px 10px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    align-content: center;
+    flex-direction: column;
+}
+
+.containerOpcionesFather{
+    position: fixed;
+    width: 35%;
+}
+
+.containerProcesoImagen{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: row;
+    width: 100%;
+}
+
+#circleOne, #circleTwo{
+    width: 35px;
+    height: 35px;
+    border-radius: 5px;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    font-weight: 700;
+    font-size: 17px;
+}
+
+#lineMiddle{
+    width: 48%;
+    height: 10px;
+}
+
+.containerProcesoData{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: row;
+    width: 100%;
+}
+
+.containerProcesoData div{
+    margin: 10px 22%;
+    font-size: 17px;
+    font-weight: 600;
+    text-align: center;
+}
+
+@media screen and (max-width: 900px) {
+    .containerCreacionCuestionarios{
+        display: grid;
+        grid-template-columns: 1fr;
+        grid-template-rows: repeat(2, auto);
+        grid-template-areas: 
+        "area3"
+        "area2"
+        ;
+    }
+    
+    .containerCreacionCuestionariosSon1{
+        display: none;
+    }
+    
+    .containerCreacionCuestionariosSon2{
+        grid-area: area2;
+        padding: 20px 40px;
+        margin-bottom: 100px;
+    }
+    
+    .containerCreacionCuestionariosSon3{
+        grid-area: area3;
+        padding: 0px 40px;
+    }
+
+    .containerProcesoData div{
+        margin: 10px 22%;
+        font-size: 14px;
+        font-weight: 600;
+        text-align: center;
+    }
+}
+
+@media screen and (max-width: 500px) {
+    .containerProcesoData div{
+        margin: 10px 20%;
+        font-size: 14px;
+        font-weight: 600;
+        text-align: center;
+    }
+
+    .containerCreacionCuestionariosSon2{
+        grid-area: area2;
+        padding: 20px 15px;
+        margin-bottom: 100px;
+    }
+    
+}
+
+/*Dentro de son 1*/
+.containerOpciones{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    padding: 20px;
+    border-radius: 20px;
+}
+
+/*Correcion para pantallas pequeñas*/
+@media (max-height: 850px) and (orientation:landscape) {
+
+    .containerCreacionCuestionariosSon3 {
+        display: none;
+    }
+
+    .containerCreacionCuestionarios{
+        padding: 80px 0 0 0;
+    }
+ 
+ }
+
+.containerOpciones a{
+    width: 90%;
+    margin: 3px 0px;
+}
+
+/*Contenedor de los botones del modal*/
+
+.botonesDelModal{
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    grid-template-rows: auto;
+    
+    width: 100%;
+    padding: 50px 20px;
+    border-radius: 0 0 20px 20px;
+
+    position: absolute;
+    right: 0;
+
+    justify-items: center;
+    justify-content: center;
+    align-items: center;
+}
+
+.botonesDelModalDosBotones{
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    grid-template-rows: auto;
+    
+    width: 100%;
+    padding: 50px 20px;
+    border-radius: 0 0 20px 20px;
+
+    position: absolute;
+    right: 0;
+
+    justify-items: center;
+    justify-content: center;
+    align-items: center;
+}
+
+.botonesDelModalDosBotones div{
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.botonesDelModalDosBotones div a{
+    width: 90%;
+    margin: 5px 10px;
+}
+
+@media screen and (max-width: 700px) {
+    .botonesDelModal,.botonesDelModalDosBotones{
+        display: grid;
+        grid-template-columns: 1fr;
+        grid-template-rows: auto;
+        grid-template-areas: 
+        "area1"
+        "area2"
+        "area3";
+        
+        width: 100%;
+        padding: 20px 10px;
+        border-radius: 0 0 20px 20px;
+    
+        position: absolute;
+        right: 0;
+    
+        justify-items: center;
+        justify-content: center;
+        align-items: center;
+    }
+
+    .botonesDelModalSon1{
+        grid-area:area1;
+        width: 100%;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    }
+    
+    .botonesDelModalSon2{
+        grid-area:area2;
+        width: 100%;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    }
+    
+    .botonesDelModalSon3{
+        grid-area:area3;
+        width: 100%;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    }
+
+    .botonesDelModalSon1 a, .botonesDelModalSon2 a,  .botonesDelModalSon3 a{
+        width: 90%;
+        margin-bottom: 10px;
+    }
+}
+
+/*Diseño del input de nombre*/
+.inputNombreCuestionario{
+    width: 100%;
+    margin: 20px 0px;
+}
+
+.inputNombre{
+    width: 100%;
+    padding: 12px 20px;
+    display: inline-block;
+    border: #fff solid 1px;
+    color: #000;
+    outline: none !important;
+    border-radius: 20px 20px 0 0 !important;
+}
+
+
+.inputNombreCuestionario a{
+    width: 100%;
+    border-radius: 0 0 20px 20px;
+}
+
+.contenedorTitulo{
+    display: flex;
+    justify-content: left;
+    align-items: center;
+}
+
+.contenedorTitulo a{
+    margin-left: 10px;
+    position: relative;
+    top: 5px;
+}
+
+/*Modal de opción multiples*/
+.labelContainer{
+    display: flex !important;
+    justify-content: center !important;
+    align-content: center !important;
+    height: 100px !important;
+    padding: 35px !important;
+}
+
+.opcionContainer{
+    padding: 10px 20px;
+    margin-top: 10px;
+}
+
+@media screen and (max-width: 600px) {
+    /*Modal de opción multiples*/
+    .labelContainer{
+        display: flex !important;
+        justify-content: left !important;
+        align-content: center !important;
+        height: auto !important;
+        padding: 10px 0px !important;
+    }
+}
+
+#contenedorOpccionEspaciosCreacion{
+    width: 100% !important;
+}
+
+
+.containerTextBlank{
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: row;
+}
+
+.containerTextBlankSon1{
+    font-size: 20px;
+    font-weight: 600;
+}
+
+.containerTextBlankSon2 input, .conceptoDefinicion{
+    width: 100% !important;
+    padding: 15px 10px 15px 20px !important;
+    display: inline-block !important;
+    border: rgb(180, 180, 180) solid 1px !important;
+    background-color: rgb(238, 238, 238) !important;
+    font-weight: 600;
+    font-size: 16px;
+    margin-bottom: 5px;
+    color: #000 !important;
+    outline: none !important;
+    border-radius: 10px !important;
+}
+
+@media screen and (max-width: 600px) {
+    .containerTextBlankSon2 input{
+        width: 100% !important;
+        padding: 8px !important;
+        border-radius: 5px !important;
+    }
+}
+/*Opciones para mobile*/
+
+.containerOpcionesMobileFather{
+    width: 100%;
+    padding: 0 100px;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    z-index: 100;
+
+    position: fixed;
+    bottom: 0px;
+}
+
+@media screen and (max-width: 600px) {
+    .containerOpcionesMobileFather{
+        padding: 0 8px;
+    }
+}
+
+@media screen and (min-width: 900px) {
+    .containerOpcionesMobileFather{
+        display: none;
+    }
+}
+
+.containerOpcionesMobile{
+    width: 100%;
+    height: auto;
+    box-sizing: border-box;
+    display: grid;
+    grid-template-columns: repeat(8, 1fr);
+    grid-template-rows: auto;
+
+    position: relative;
+    bottom: 20px;
+}
+
+.button1{
+    border-radius: 10px 0 0 10px;
+}
+
+.button5{
+    border-radius: 0 10px 10px 0;
+}
+
+.button1 i,.button2 i,.button3 i,.button4 i,.button5 i{
+    height: 56px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+/*Altura de los modales*/
+.modalAltura{
+    min-height: 80vh;
+    max-width: 100vh;
+    height: auto;
+}
+
+@media screen and (max-width: 600px) {
+    .modalAltura{
+        min-height: 80vh;
+        max-width: 100vh;
+        height: auto;
+    }
+}
+
+/*Container buttons en la preview de preguntas agregadas*/
+.containerButtonsView{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.containerButtonsView div{
+    margin: 10px 2px;
+}
+
+@media screen and (max-width: 1100px) {
+    .containerButtonsView{
+        flex-direction: column;
+    }
+    
+    .containerButtonsView div{
+        margin: 0px 0px;
+        width: 100%;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    }
+
+    .containerButtonsView div a{
+        width: 100%;
+        margin-bottom: 10px;
+    }
+}
+
+@media screen and (max-width: 900px) {
+    .containerButtonsView{
+        flex-direction: row;
+    }
+
+    .containerButtonsView{
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    }
+    
+    .containerButtonsView div{
+        margin: 10px 2px;
+    }
+}
+
+@media screen and (max-width: 600px) {
+    .containerButtonsView{
+        flex-direction: column;
+    }
+    
+    .containerButtonsView div{
+        margin: 0px 0px;
+        width: 100%;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    }
+
+    .containerButtonsView div a{
+        width: 100%;
+        margin-bottom: 5px;
+    }
+}
+
+/*Preview de código en la sección de ejercicicos*/
+.previewCodeContainer{
+    width: 100%;
+    min-height: 100px;
+    max-height: 300px;
+    margin-bottom: 10px;
+    padding: 20px 30px;
+    background-color: rgb(8, 21, 32);
+    overflow-x: scroll;
+    overflow-y: scroll;
+    white-space: pre-wrap;
+    word-break: break-all;
+}
+
+.previewCodeContainerNoModal{
+    width: 800px;
+    min-height: 100px;
+    max-height: 300px;
+    margin-bottom: 10px;
+    padding: 20px 30px;
+    background-color: rgb(8, 21, 32);
+    overflow-x: scroll;
+    overflow-y: scroll;
+    white-space: pre-wrap;
+    word-break: break-all;
+}
+
+@media screen and (max-width: 1600px) {
+    .previewCodeContainerNoModal{
+        width: 700px !important;
+    }
+}
+
+@media screen and (max-width: 1400px) {
+    .previewCodeContainerNoModal{
+        width: 600px !important;
+    }
+}
+
+@media screen and (max-width: 1250px) {
+    .previewCodeContainerNoModal{
+        width: 430px !important;
+    }
+}
+
+@media screen and (max-width: 550px) {
+    .previewCodeContainerNoModal{
+        width: 350px !important;
+    }
+}
+
+@media screen and (max-width: 450px) {
+    .previewCodeContainerNoModal{
+        width: 200px !important;
+    }
+}
+
+/*Para las opciones de agregar codigo al preview*/
+.contenedorOpcionesCodigo{
+    padding: 20px 10px;
+}
+
+
+/*Para las opciones de drag and drop*/
+
+.elementoListado{
+    padding: 10px 20px;
+    height: auto;
+    margin-bottom: 10px;
+    border-radius: 500px;
+    font-size: 16px;
+    font-weight: 500;
+}
+
+.tituloColumnaModal{
+    margin: 0;
+    margin-bottom: 10px;
+}
+
+
+
+/*buttonSaveJSON posicion del boton*/
+@media screen and (max-width: 600px) {
+    .buttonSaveJSON{
+        top: 10px;
+    }
+}
+
+/*Input de falso o verdadero*/
+.falsoVerdaderoInput{
+    width: 100%;
+    border-radius: 20px;
+    padding: 10px 20px;
+    border: #fff solid 0px;
+    color: #000;
+    font-weight: 700;
+    font-size: 20px;
+    text-transform:uppercase;
+
+    text-align: center;
+}
+
+/*Input de falso o verdadero*/
+.ponderacionInput{
+    width: 100%;
+    border-radius: 10px;
+    padding: 5px 20px;
+    border: #fff solid 0px;
+    color: #000;
+    font-weight: 700;
+    font-size: 20px;
+    text-transform:uppercase;
+
+    text-align: center;
+}
+
+.ponderacionInput::placeholder {
+    color: rgb(160, 160, 160);
+}
+
+
+/*Estilos del banco de datos*/
+.contenedorBancoDatos{
+    margin: 20px 40px;
+    padding: 40px;
+    border-radius: 20px;
+}
+
+.buttonSendBanco{
+    margin: 10px 0;
+    width: 100%;
+    box-sizing: border-box;
+}
+
+/*Estilos creacion de cuestionarios del banco de datos*/
+.container_preguntas{
+    padding: 7% 5%;
+}

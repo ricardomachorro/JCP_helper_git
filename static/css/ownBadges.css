@@ -1,0 +1,10 @@
+.miniBadge{
+    width: auto;
+    height: 40px;
+    font-weight: 600;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    padding: 2px 20px 2px 20px;
+}
